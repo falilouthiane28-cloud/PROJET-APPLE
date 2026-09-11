@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iStore Tech Dakar · Neuf, scellé, livré demain.</title>
+<meta name="description" content="iPhone, Samsung, PlayStation, Switch et MacBook à Dakar. Neufs et scellés, livraison 24h partout au Sénégal, paiement à la réception par Wave, Orange Money ou espèces.">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FAFAF8'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%230B0C0E' stroke-width='1.8'/%3E%3Cpath d='M12 16.3l2.7 2.7L20 13' fill='none' stroke='%230B0C0E' stroke-width='1.8'/%3E%3C/svg%3E">
+<meta property="og:title" content="iStore Tech Dakar · Neuf, scellé, livré demain.">
+<meta property="og:description" content="iPhone, Samsung, PlayStation, Switch et MacBook à Dakar. Neufs et scellés, livraison 24h partout au Sénégal, paiement à la réception par Wave, Orange Money ou espèces.">
+<meta property="og:type" content="website">
+<!-- DEPLOY STEP : remplacer par l'URL live -->
+<meta property="og:url" content="https://REMPLACER-AU-DEPLOIEMENT/index.html">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="assets/catalogue.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/shop.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="env" aria-hidden="true"><div class="dust" id="dust"></div></div>
+<header class="nav" role="banner">
+  <nav class="navin" aria-label="Navigation principale">
+    <a class="brand" href="index.html" aria-label="iStore Tech, accueil">
+      <img src="assets/logo-istore-tech.png" alt="iStore Tech" width="52" height="32">
+    </a>
+    <div class="navlinks" id="navlinks">
+      <span class="navpill" id="navpill" aria-hidden="true"></span>
+      <a href="index.html" class="on" aria-current="page">Accueil</a>
+      <a href="iphone-apple.html">iPhone</a>
+      <a href="samsung-android.html">Samsung</a>
+      <a href="gaming.html">Gaming</a>
+      <a href="machines.html">Machines</a>
+      <a href="audio.html">Audio</a>
+      <a href="accessoires.html">Accessoires</a>
+    </div>
+    <div class="navtools">
+      <a class="navic" href="favoris.html" aria-label="Mes favoris">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.6A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7 3.4c0 5-7 9.6-7 9.6z"/></svg>
+        <span class="pastille" data-compteur-favoris hidden>0</span>
+      </a>
+      <a class="navic" href="panier.html" aria-label="Mon panier">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 7h13l-1.4 9.3a2 2 0 0 1-2 1.7H9.4a2 2 0 0 1-2-1.7L6 7z"/><path d="M6 7L5.2 4H3"/><circle cx="10" cy="21" r="1"/><circle cx="16" cy="21" r="1"/></svg>
+        <span class="pastille" data-compteur-panier hidden>0</span>
+      </a>
+      <a class="navcta wa" href="#" aria-label="Commander sur WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
+        <span class="ctatxt">WhatsApp</span>
+      </a>
+    </div>
+  </nav>
+</header>
+<main id="main" tabindex="-1">
+
+<h1 class="sr">iStore Tech Dakar : neuf, scellé, livré demain.</h1>
+
+<section class="hero" id="film">
+  <div class="stage">
+
+    <div class="canvas-wrap" aria-hidden="true">
+      <canvas id="film-canvas"></canvas>
+      <div class="plate"></div>
+    </div>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3"
+              stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/>
+    </svg>
+
+    <div class="bands" id="bands">
+
+      <div class="band e-drift" data-a="0" data-b="0.16">
+        <div class="bandin">
+          <span class="kick">iStore Tech · Dakar</span>
+          <p class="htitle" data-split="word">Neuf, scellé, livré demain.</p>
+        </div>
+      </div>
+
+      <div class="band e-scatter" data-a="0.29" data-b="0.47" data-spread="0.5">
+        <div class="bandin">
+          <p class="htitle sm" data-split="char">Et pas seulement le téléphone.</p>
+        </div>
+      </div>
+
+      <div class="band e-punch" data-a="0.66" data-b="0.80">
+        <div class="bandin">
+          <p class="htitle sm" data-split="word">PlayStation, Switch, MacBook.</p>
+        </div>
+      </div>
+
+      <div class="band e-rise live" data-a="0.80" data-b="1" data-ramp="0.05">
+        <div class="bandin">
+          <p class="htitle set" data-split="word">Tu paies quand tu l'as en main.</p>
+          <p class="hsub">Livraison 24h. Wave, Orange Money ou espèces à la réception.</p>
+          <div class="hrow">
+            <a class="btn btn-1" href="#categories">Voir la boutique</a>
+            <a class="btn btn-2 wa" href="#">Commander sur WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="still">
+      <img class="stillimg" src="assets/hero-ending.jpg" alt="" width="1920" height="1080" fetchpriority="high">
+      <div class="stillin">
+        <span class="kick">iStore Tech · Dakar</span>
+        <p class="htitle sm">Neuf, scellé, livré demain.</p>
+        <p class="hsub">iPhone, Samsung, PlayStation, Switch, MacBook. Tu choisis, on confirme sur WhatsApp, tu paies quand tu l'as en main.</p>
+        <div class="hrow">
+          <a class="btn btn-1" href="#categories">Voir la boutique</a>
+          <a class="btn btn-2 wa" href="#">Commander sur WhatsApp</a>
+        </div>
+        <span class="mono hdata">Wave · Orange Money · Espèces à la livraison</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="sec" id="comment">
+  <div class="wrap">
+    <div class="head rise">
+      <span class="kick">Comment ça marche</span>
+      <h2>Trois étapes, aucune carte à saisir.</h2>
+      <p>Pas de compte à créer, pas de paiement en ligne. Tu commandes comme tu écrirais à un ami.</p>
+    </div>
+    <div class="etapes st">
+      <div class="etape">
+        <h3>Tu choisis.</h3>
+        <p>Couleur, capacité, quantité. Le prix se met à jour sous tes yeux, sans surprise à la fin.</p>
+      </div>
+      <div class="etape">
+        <h3>On confirme.</h3>
+        <p>Ton panier part sur WhatsApp, déjà rédigé. On te répond avec le stock et l'heure de livraison.</p>
+      </div>
+      <div class="etape">
+        <h3>Tu paies à la réception.</h3>
+        <p>Wave, Orange Money ou espèces, une fois l'appareil dans ta main. Tu peux refuser si ça ne va pas.</p>
+      </div>
+    </div>
+    <div class="paiements rise">
+      <span class="paie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 13c3-4 6 4 9 0s6-4 9 0"/></svg>Wave</span>
+      <span class="paie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg>Orange Money</span>
+      <span class="paie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>Espèces à la livraison</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="categories">
+  <div class="wrap">
+    <div class="head rise">
+      <span class="kick">Catalogue</span>
+      <h2>Ce qu'on garde en boutique.</h2>
+      <p>Six familles, 62 références. Tout est neuf et scellé, sauf mention contraire écrite sur la fiche.</p>
+    </div>
+    <div class="cats st">
+      <a class="cat" href="iphone-apple.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        <h3>iPhone &amp; Apple</h3>
+        <p>Du 15 au 16 Pro Max, Watch et iPad.</p>
+        <span class="go">Voir <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span>
+      </a>
+      <a class="cat" href="samsung-android.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4"/></svg>
+        <h3>Samsung &amp; Android</h3>
+        <p>Galaxy S, Galaxy A, tablettes.</p>
+        <span class="go">Voir <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span>
+      </a>
+      <a class="cat" href="gaming.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 10v4M5 12h4M16 11.5h.01M18.5 14h.01"/></svg>
+        <h3>Gaming</h3>
+        <p>PlayStation, Switch, Xbox, manettes.</p>
+        <span class="go">Voir <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span>
+      </a>
+      <a class="cat" href="machines.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 19h20"/></svg>
+        <h3>Machines</h3>
+        <p>MacBook, PC gamer, écrans.</p>
+        <span class="go">Voir <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span>
+      </a>
+      <a class="cat" href="audio.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="13" width="4.5" height="7" rx="2"/><rect x="17.5" y="13" width="4.5" height="7" rx="2"/></svg>
+        <h3>Audio</h3>
+        <p>AirPods, casques, enceintes.</p>
+        <span class="go">Voir <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span>
+      </a>
+      <a class="cat" href="accessoires.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 2L5 13h6l-2 9 8-11h-6z"/></svg>
+        <h3>Accessoires</h3>
+        <p>Chargeurs, câbles, coques certifiés.</p>
+        <span class="go">Voir <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-paper" id="selection">
+  <div class="wrap">
+    <div class="head rise">
+      <span class="kick">Sélection</span>
+      <h2>Ce qui part le plus vite.</h2>
+      <p>Un aperçu. Le catalogue complet est dans les pages par famille.</p>
+    </div>
+    <div class="grid st">
+        <article class="card">
+          <a class="pic" href="produit.html?id=iphone-16-pro"><img src="assets/produits/iphone-16-pro-finish-select-202409-6-3inch-blacktitanium.webp" alt="iPhone 16 Pro, 6,3 pouces." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=iphone-16-pro">iPhone 16 Pro</a></h3>
+          <p class="var">6,3 pouces</p>
+          <p class="price">À partir de 420 000 F</p>
+          <a class="add" href="produit.html?id=iphone-16-pro">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=iphone-16-pro-max"><img src="assets/produits/iphone-16-pro-finish-select-202409-6-9inch-blacktitanium.webp" alt="iPhone 16 Pro Max, 6,9 pouces." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=iphone-16-pro-max">iPhone 16 Pro Max</a></h3>
+          <p class="var">6,9 pouces</p>
+          <p class="price">À partir de 520 000 F</p>
+          <a class="add" href="produit.html?id=iphone-16-pro-max">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=iphone-16-plus"><img src="assets/produits/iphone-16-finish-select-202409-6-7inch-teal.webp" alt="iPhone 16 Plus, 6,7 pouces." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=iphone-16-plus">iPhone 16 Plus</a></h3>
+          <p class="var">6,7 pouces</p>
+          <p class="price">À partir de 395 000 F</p>
+          <a class="add" href="produit.html?id=iphone-16-plus">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=apple-watch-series"><img src="assets/produits/watch-compare-s11-202509.webp" alt="Apple Watch Series, Aluminium." loading="lazy"></a>
+          <span class="badge">Nouveau</span>
+          <h3><a href="produit.html?id=apple-watch-series">Apple Watch Series</a></h3>
+          <p class="var">Aluminium</p>
+          <p class="price">À partir de 285 000 F</p>
+          <a class="add" href="produit.html?id=apple-watch-series">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=apple-watch-ultra"><img src="assets/produits/watch-compare-ultra3-202509.webp" alt="Apple Watch Ultra, Titane." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=apple-watch-ultra">Apple Watch Ultra</a></h3>
+          <p class="var">Titane</p>
+          <p class="price">À partir de 550 000 F</p>
+          <a class="add" href="produit.html?id=apple-watch-ultra">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=galaxy-s25-ultra"><img src="assets/produits/galaxy-s25-ultra.webp" alt="Galaxy S25 Ultra, 6,9 pouces." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=galaxy-s25-ultra">Galaxy S25 Ultra</a></h3>
+          <p class="var">6,9 pouces</p>
+          <p class="price">À partir de 565 000 F</p>
+          <a class="add" href="produit.html?id=galaxy-s25-ultra">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=galaxy-s25"><img src="assets/produits/galaxy-s25.webp" alt="Galaxy S25, 6,2 pouces." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=galaxy-s25">Galaxy S25</a></h3>
+          <p class="var">6,2 pouces</p>
+          <p class="price">À partir de 385 000 F</p>
+          <a class="add" href="produit.html?id=galaxy-s25">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=galaxy-a56"><img src="assets/produits/galaxy-a56.webp" alt="Galaxy A56, 6,6 pouces." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=galaxy-a56">Galaxy A56</a></h3>
+          <p class="var">6,6 pouces</p>
+          <p class="price">À partir de 165 000 F</p>
+          <a class="add" href="produit.html?id=galaxy-a56">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=ps5-slim"><img src="assets/produits/ps5-slim.webp" alt="PlayStation 5 Slim, Lecteur disque." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=ps5-slim">PlayStation 5 Slim</a></h3>
+          <p class="var">Lecteur disque</p>
+          <p class="price">À partir de 440 000 F</p>
+          <a class="add" href="produit.html?id=ps5-slim">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=ps5-digital"><img src="assets/produits/ps5-digital.webp" alt="PlayStation 5 Digital, Sans lecteur." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=ps5-digital">PlayStation 5 Digital</a></h3>
+          <p class="var">Sans lecteur</p>
+          <p class="price">À partir de 390 000 F</p>
+          <a class="add" href="produit.html?id=ps5-digital">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=dualsense"><img src="assets/produits/dualsense.webp" alt="Manette DualSense, Sans fil · PS5." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=dualsense">Manette DualSense</a></h3>
+          <p class="var">Sans fil · PS5</p>
+          <p class="price">À partir de 55 000 F</p>
+          <a class="add" href="produit.html?id=dualsense">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=switch-oled"><img src="assets/produits/switch-oled.webp" alt="Nintendo Switch OLED, Écran 7 pouces." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=switch-oled">Nintendo Switch OLED</a></h3>
+          <p class="var">Écran 7 pouces</p>
+          <p class="price">À partir de 265 000 F</p>
+          <a class="add" href="produit.html?id=switch-oled">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=macbook-air-13"><img src="assets/produits/mba13-midnight-select-202402.webp" alt="MacBook Air 13", Puce M." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=macbook-air-13">MacBook Air 13"</a></h3>
+          <p class="var">Puce M</p>
+          <p class="price">À partir de 550 000 F</p>
+          <a class="add" href="produit.html?id=macbook-air-13">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=macbook-air-15"><img src="assets/produits/mba15-midnight-select-202306.webp" alt="MacBook Air 15", Puce M." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=macbook-air-15">MacBook Air 15"</a></h3>
+          <p class="var">Puce M</p>
+          <p class="price">À partir de 650 000 F</p>
+          <a class="add" href="produit.html?id=macbook-air-15">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=ipad-pro"><img src="assets/produits/ipad-pro-m4.webp" alt="iPad Pro M4, 11 pouces." loading="lazy"></a>
+          <span class="badge">Sur commande</span>
+          <h3><a href="produit.html?id=ipad-pro">iPad Pro M4</a></h3>
+          <p class="var">11 pouces</p>
+          <p class="price">À partir de 620 000 F</p>
+          <a class="add" href="produit.html?id=ipad-pro">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=airpods-max"><img src="assets/produits/airpods-max-select-202409-midnight.webp" alt="AirPods Max, Réduction de bruit." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=airpods-max">AirPods Max</a></h3>
+          <p class="var">Réduction de bruit</p>
+          <p class="price">À partir de 385 000 F</p>
+          <a class="add" href="produit.html?id=airpods-max">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=airpods-pro"><img src="assets/produits/airpods-pro.webp" alt="AirPods Pro, Réduction de bruit." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=airpods-pro">AirPods Pro</a></h3>
+          <p class="var">Réduction de bruit</p>
+          <p class="price">À partir de 165 000 F</p>
+          <a class="add" href="produit.html?id=airpods-pro">Choisir</a>
+        </article>
+        <article class="card">
+          <a class="pic" href="produit.html?id=chargeur-magsafe"><img src="assets/produits/MHXH3.webp" alt="Chargeur MagSafe, Sans fil." loading="lazy"></a>
+          <span class="badge">En stock</span>
+          <h3><a href="produit.html?id=chargeur-magsafe">Chargeur MagSafe</a></h3>
+          <p class="var">Sans fil</p>
+          <p class="price">À partir de 35 000 F</p>
+          <a class="add" href="produit.html?id=chargeur-magsafe">Choisir</a>
+        </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="trust st">
+      <div class="tcell">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M4 11h16M12 7v13"/><path d="M8.5 7L12 3.5 15.5 7"/></svg>
+        <span class="mono">01 · Scellé</span>
+        <h3>Sous film, jamais ouvert.</h3>
+        <p>On revend du neuf d'origine. Quand un appareil est d'occasion, c'est écrit sur sa fiche, en toutes lettres.</p>
+      </div>
+      <div class="tcell">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/></svg>
+        <span class="mono">02 · Paiement</span>
+        <h3>Tu paies quand tu l'as en main.</h3>
+        <p>Wave, Orange Money ou espèces, à la livraison. Rien d'avance, aucune carte à saisir.</p>
+      </div>
+      <div class="tcell">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        <span class="mono">03 · Livraison</span>
+        <h3>24 heures, partout au Sénégal.</h3>
+        <p>Dakar comme les régions, au même délai. Tu connais l'heure avant de confirmer.</p>
+      </div>
+      <div class="tcell">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+        <span class="mono">04 · Garantie</span>
+        <h3>Deux ans, et une adresse.</h3>
+        <p>La garantie est portée ici, à Sacré-Cœur 3. Tu sais où nous trouver.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec sec-alt" id="avis">
+  <div class="wrap">
+    <div class="head rise">
+      <span class="kick">Avis</span>
+      <h2>Ce qu'ils disent en sortant.</h2>
+    </div>
+    <!-- AVIS : remplacer par de vrais avis clients, ou supprimer la section -->
+    <div class="avis st">
+      <article class="rev">
+        <div class="stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg></div>
+        <p>Commandé le matin, livré l'après-midi, payé en Wave à la livraison. Rien à dire.</p>
+        <div class="who"><b>Avis à remplacer</b><span class="mono">Date</span></div>
+      </article>
+      <article class="rev">
+        <div class="stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg></div>
+        <p>Le film d'origine était encore dessus. J'ai ouvert la boîte moi-même devant le livreur.</p>
+        <div class="who"><b>Avis à remplacer</b><span class="mono">Date</span></div>
+      </article>
+      <article class="rev">
+        <div class="stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg></div>
+        <p>Mon écran a lâché au bout de six mois. Je suis passé à la boutique, réparé sous garantie, sans discuter.</p>
+        <div class="who"><b>Avis à remplacer</b><span class="mono">Date</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="head rise">
+      <span class="kick">Questions</span>
+      <h2>Les vraies questions.</h2>
+    </div>
+    <div class="faq rise" id="faq">
+      <div class="q">
+        <button class="qb" aria-expanded="false">Vos téléphones sont neufs ou d'occasion ?<svg class="qi" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 1v12M1 7h12"/></svg></button>
+        <div class="qa"><p>Neufs et scellés. C'est ce qu'on vend. Quand un appareil est d'occasion, c'est écrit sur sa fiche en toutes lettres. On ne mélange pas les deux.</p></div>
+      </div>
+      <div class="q">
+        <button class="qb" aria-expanded="false">Comment je sais que c'est un vrai ?<svg class="qi" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 1v12M1 7h12"/></svg></button>
+        <div class="qa"><p>Le film d'origine n'a pas été ouvert. Tu le vois à la livraison, avant de payer, et tu peux refuser si quelque chose ne va pas.</p></div>
+      </div>
+      <div class="q">
+        <button class="qb" aria-expanded="false">Je paie avant ou après ?<svg class="qi" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 1v12M1 7h12"/></svg></button>
+        <div class="qa"><p>Après. Wave, Orange Money ou espèces, quand tu as l'appareil en main. Rien à avancer, aucune carte à saisir sur le site.</p></div>
+      </div>
+      <div class="q">
+        <button class="qb" aria-expanded="false">Le prix affiché est-il le prix final ?<svg class="qi" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 1v12M1 7h12"/></svg></button>
+        <div class="qa"><p>C'est le prix de départ. La capacité et le coloris peuvent le faire monter. Le prix exact s'affiche sur la fiche dès que tu choisis tes options.</p></div>
+      </div>
+      <div class="q">
+        <button class="qb" aria-expanded="false">Vous livrez où et en combien de temps ?<svg class="qi" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 1v12M1 7h12"/></svg></button>
+        <div class="qa"><p>Partout au Sénégal, en 24 heures. Dakar comme les régions, au même délai.</p></div>
+      </div>
+      <div class="q">
+        <button class="qb" aria-expanded="false">Et si l'appareil tombe en panne ?<svg class="qi" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 1v12M1 7h12"/></svg></button>
+        <div class="qa"><p>Tu passes à la boutique, à Sacré-Cœur 3. Deux ans de garantie, prise en charge sur place.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt final">
+  <div class="wrap rise">
+    <h2>Dis-nous ce que tu cherches.</h2>
+    <p>Un message, on te répond avec le prix, le stock et le délai. Pas de compte à créer.</p>
+    <div class="hrow"><a class="btn btn-1 wa" href="#">Commander sur WhatsApp</a></div>
+    <p class="addr">Ou passe nous voir : <b>Sacré-Cœur 3, Dakar</b>. Du lundi au samedi, 9h à 19h.</p>
+    <span class="mono">Réponse sous 1h · 7j/7</span>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <a class="brand" href="index.html" aria-label="iStore Tech, accueil">
+          <img src="assets/logo-istore-tech.png" alt="iStore Tech" width="65" height="40">
+        </a>
+        <p class="tag">Du scellé, livré en 24h, payé à la réception.</p>
+        <p class="tag addr-f">Sacré-Cœur 3, Dakar<br>Lundi au samedi, 9h à 19h<br><a href="https://wa.me/221784277229">+221 78 427 72 29</a></p>
+      </div>
+      <div>
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="iphone-apple.html">iPhone &amp; Apple</a></li>
+          <li><a href="samsung-android.html">Samsung &amp; Android</a></li>
+          <li><a href="gaming.html">Gaming</a></li>
+          <li><a href="machines.html">Machines</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Aussi</h4>
+        <ul>
+          <li><a href="audio.html">Audio</a></li>
+          <li><a href="accessoires.html">Accessoires</a></li>
+          <li><a href="favoris.html">Mes favoris</a></li>
+          <li><a href="panier.html">Mon panier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Paiement</h4>
+        <ul>
+          <li><a href="index.html#comment">Wave</a></li>
+          <li><a href="index.html#comment">Orange Money</a></li>
+          <li><a href="index.html#comment">Espèces à la livraison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Conditions de vente</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">© 2026 iStore Tech. Revendeur indépendant. Non affilié à Apple Inc., Samsung, Sony ou Nintendo. Les marques et visuels produits cités appartiennent à leurs propriétaires respectifs.</p>
+  </div>
+</footer>
+</body>
+</html>

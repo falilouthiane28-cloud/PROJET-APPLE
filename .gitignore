@@ -1,0 +1,73 @@
+# ============================================================
+#  Notes internes : elles ne sortent pas du poste
+# ============================================================
+# Ces fichiers disent ce que la boutique n'assume pas encore :
+# des prix non valides, des avis clients qui sont des textes
+# d'attente, les points qui restent incertains. Publies, ils
+# donneraient a n'importe qui de quoi mettre en doute le site.
+memory.md
+progress.md
+DESIGN-PACKAGE.md
+HERO-PROMPTS.md
+PHOTOS-A-FOURNIR.md
+
+# projet.md reste suivi : c'est le document qui explique le
+# projet a quelqu'un qui ouvre le dossier, et il ne contient que
+# des informations deja affichees sur le site.
+
+# ============================================================
+#  Secrets : rien de tel ici aujourd'hui, et ca doit le rester
+# ============================================================
+.env
+.env.*
+*.key
+*.pem
+*secret*
+*credential*
+*token*
+
+# ============================================================
+#  Ce qui se regenere tout seul
+# ============================================================
+__pycache__/
+*.py[cod]
+review/
+
+# ============================================================
+#  Photos brutes : exclues, et pour une raison concrete
+# ============================================================
+# Dix-sept de ces fichiers portent le titre entier de la page
+# d'ou ils ont ete enregistres, jusqu'a 227 caracteres. Windows
+# refuse ces chemins, et "git add ." echouait completement a
+# cause d'eux : rien ne pouvait etre commite du tout.
+# Ce ne sont que les originaux telecharges. Les versions qui
+# servent vraiment au site sont dans istore-dakar/assets/produits/
+# en WebP, avec des noms propres, et elles restent suivies.
+img/
+
+# Le paquet de la skill, telechargeable ailleurs.
+10k-websites-skill.zip
+
+# ============================================================
+#  Systeme et editeurs
+# ============================================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+
+# ============================================================
+#  Ce qui reste suivi, et pourquoi
+# ============================================================
+# hero-section/  : la video source et ses images. Uniques, non
+#                  regenerables, tout le heros en depend.
+# img/           : les photos produit d'origine, avant conversion.
+# istore-dakar/  : le site a mettre en ligne. Il doit etre complet
+#                  dans le depot, images du film comprises.
+# catalogue.py   : la source du catalogue.
+# build-pages.py : le generateur des pages.
