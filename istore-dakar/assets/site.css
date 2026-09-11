@@ -165,8 +165,19 @@ body.ready .navin{transform:none;opacity:1}
    Le brief proposait 1100vh pour y arriver exactement ; 500vh est le compromis
    choisi, qui ramène le temps passé sur un morph de 59% à environ 35%. */
 .hero{position:relative;z-index:1;height:500vh}
-.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--canvas);
-  --film-h:min(74vh,56.25vw)}
+/* Le fond de la scène reprend la vignette du film, mesurée sur les images :
+   coins hauts #D6D6D6, centre haut #F8F8F8, coins bas #E8E8E8. Le brief
+   annonçait #CDCDCD pour les coins hauts, soit dix niveaux trop sombre, ce qui
+   aurait créé la couture qu'il cherchait justement à éviter. Un aplat uni ne
+   peut pas marcher : le film s'étale sur 34 niveaux entre ses coins et son
+   centre. Ce dégradé est sur la scène et non sur body, sinon les dix pages de
+   la boutique viraient au gris. */
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;
+  --film-h:min(58vh,36vw);
+  background:
+    radial-gradient(ellipse 74% 58% at 50% 0%,
+      rgba(255,255,255,.94) 0%, rgba(255,255,255,0) 64%),
+    linear-gradient(to bottom, #D6D6D6 0%, #DFDFDF 40%, #E8E8E8 76%, #E3E3E3 100%)}
 
 /* Le film est rendu image par image dans un canvas : aucune latence de recherche,
    contrairement à une vidéo qu'on déplace au scroll. Le canvas se peint de la
@@ -216,33 +227,90 @@ body.ready .navin{transform:none;opacity:1}
 
 /* Le voile ÉCLAIRCIT, il n'assombrit pas : le texte est noir sur un studio blanc.
    Il est pesé vers le bas, là où vivent les légendes, et laisse l'appareil net. */
-.scrim{position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(250,250,248,0) 52%,rgba(250,250,248,.55) 78%,rgba(250,250,248,.84) 100%)}
+/* Le texte vit desormais dans les colonnes, plus dans le tiers bas : ce voile
+   ne sert plus a eclaircir un fond, seulement a fondre le bas de la scene vers
+   la couleur de la page quand le heros se decroche. */
+.scrim{position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:linear-gradient(180deg,rgba(250,250,248,0) 84%,rgba(250,250,248,.92) 100%)}
 
 /* --- les bandes : le tiers bas, sous l'appareil le plus bas mesuré (y 0,844) --- */
-.bands{position:absolute;inset:0}
-.band{position:absolute;left:0;right:0;bottom:0;
-  top:calc(50% + .344 * var(--film-h));
-  display:grid;place-items:center;
-  padding:0 var(--gut) 6vh;text-align:center;opacity:0;text-shadow:var(--tshadow);
-  pointer-events:none}
-.band.live{pointer-events:auto}
-/* Pas de voile par bande. Un dégradé radial blanc posé sur un fond déjà blanc
-   ne protège rien et se voit comme un ovale plus clair, une tache derrière le
-   texte. Le texte est placé sous l'appareil le plus bas mesuré, donc sur du
-   clair uni : le halo blanc de --tshadow suffit, et le dégradé vertical de
-   .scrim fait le reste sans créer de centre visible. */
-.bandin{position:relative;z-index:2;max-width:min(94vw,1000px)}
+/* --- les scènes : des colonnes latérales, larges selon ce que le film laisse ---
+   Mesuré image par image, l'emprise horizontale du sujet change beaucoup :
+   0,41-0,59 aux scènes 1, 2 et 6, mais 0,23-0,76 à la scène 3 et jusqu'à
+   0,26-0,998 à la scène 4, où un bras liquide touche le bord droit. Une largeur
+   unique de 40% comme le proposait le brief poserait donc le texte sur
+   l'appareil à la moitié des scènes. Chaque colonne est taillée sur sa scène.
+   Le côté de départ est inversé par rapport au brief pour que la scène 4 tombe
+   à gauche : à droite son contraste s'effondre à 1,02:1. */
+.bands{position:absolute;inset:0;z-index:2}
+.scene{position:absolute;top:0;bottom:0;width:var(--cw,23%);
+  display:flex;flex-direction:column;justify-content:center;
+  opacity:0;pointer-events:none;text-shadow:var(--tshadow)}
+.scene.at-left{left:var(--gut)}
+.scene.at-right{right:var(--gut);text-align:right}
+.scene.live{pointer-events:auto}
+#s1,#s2,#s6{--cw:min(42%,560px)}
+#s5{--cw:min(34%,450px)}
+#s3,#s4{--cw:min(30%,400px)}
+.scene-in{position:relative;z-index:2}
+/* La copie floue est empilee sur la nette et les deux se croisent en opacite.
+   Le flou lui-meme ne bouge jamais : filter n'est pas composable, l'animer
+   ferait repeindre a chaque image. */
+.pile{position:relative}
+.pile .soft{position:absolute;inset:0;filter:blur(9px);pointer-events:none}
+
+/* La signature : une règle graduée qui se trace vers le bas à l'entrée de la
+   scène et se rétracte à la sortie. C'est le seul élément appuyé de la page. */
+/* La regle annote les mots : elle epouse la hauteur du bloc de texte, et ne
+   court pas sur toute la hauteur de l'ecran, sinon elle se lit comme du
+   mobilier de page pose au bord. */
+.mesure{position:absolute;top:0;bottom:0;width:10px;height:auto;
+  color:var(--ink);overflow:visible}
+.scene.at-left .mesure{left:-40px}
+.scene.at-right .mesure{right:-40px}
+.rline{fill:none;stroke:currentColor;stroke-width:1.4;opacity:.5}
+.rtick{fill:none;stroke:currentColor;stroke-width:1.4;opacity:.28}
+@media (max-width:1100px){.mesure{display:none}}
 
 /* Les tailles sont calées sur le tiers bas, pas sur l'écran entier :
    environ 222px utiles sur un écran de 1080. */
-.kick{display:inline-block;margin:0 0 16px;color:var(--ink-2);
-  font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+/* Les tailles sont calées sur la largeur de colonne la plus étroite (300px),
+   pas sur l'écran : c'est elle qui décide si un titre reste sur deux lignes.
+   Les ch sont posés sur l'élément de texte lui-même, jamais sur un conteneur,
+   sinon la mesure se fait dans la mauvaise police. */
+.kick{display:inline-block;margin:0 0 14px;color:var(--ink-2);
+  font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+/* La revelation par masque vient de Text Reveal Block (soralabs) ; la scene 4
+   des deux moities de Split Reveal Text (animbits). Rebati en GSAP a la main. */
+.headline{font-family:var(--display);font-weight:600;letter-spacing:-.025em;
+  font-size:clamp(2.2rem,3.6vw,3.25rem);line-height:1.06;margin:0}
+/* Pas de max-width en ch ici. Les coupures de ligne sont ecrites dans le
+   balisage, une par masque : une largeur maximale ne ferait que provoquer un
+   repli que le masque couperait ensuite net. nowrap garantit une ligne par
+   masque. */
+.line{white-space:nowrap}
+/* La taille se cale sur la colonne, pas sur l'ecran. Les colonnes etroites sont
+   imposees par le film : a la scene 3 l'appareil laisse 400px, et un titre a
+   52px y passerait a deux lignes dans son masque, donc coupe. */
+#s2 .headline{font-size:clamp(2rem,3.4vw,3.05rem)}
+#s4 .headline{font-size:clamp(1.9rem,3.2vw,2.85rem)}
+#s3 .headline{font-size:clamp(1.85rem,3.05vw,2.7rem)}
+/* Le masque doit laisser passer les jambages de g, y et p : sans ce couple
+   padding + marge negative il les coupe net. */
+.mask{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.line{display:block}
+.sub{margin:18px 0 0;color:var(--ink-2);
+  font-size:clamp(.95rem,1.15vw,1.2rem);line-height:1.5;max-width:34ch}
+.scene.at-right .sub{margin-left:auto}
+.hrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.scene.at-right .hrow{justify-content:flex-end}
+.hrow .btn{padding:13px 22px;font-size:.88rem}
+
+/* le texte du héros statique, lui, reste centré */
 .htitle{font-size:clamp(1.9rem,4vw,3.4rem);max-width:24ch;margin:0 auto}
 .htitle.sm{font-size:clamp(1.6rem,3.2vw,2.6rem);max-width:26ch}
-.htitle.set{font-size:clamp(1.7rem,3.4vw,2.8rem);max-width:24ch}
 .hsub{margin:18px auto 0;max-width:52ch;color:var(--ink-2);font-size:clamp(.95rem,1.3vw,1.06rem)}
-.hrow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.still .hrow{justify-content:center}
 .hdata{margin-top:22px;color:var(--ink-3)}
 
 @media (max-height:940px) and (min-width:721px){

@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
 <script src="assets/catalogue.js" defer></script>
 <script src="assets/site.js" defer></script>
 <script src="assets/shop.js" defer></script>
@@ -77,32 +79,114 @@
 
     <div class="bands" id="bands">
 
-      <div class="band e-drift" data-a="0" data-b="0.16">
-        <div class="bandin">
-          <span class="kick">iStore Tech · Dakar</span>
-          <p class="htitle" data-split="word">Neuf, scellé, livré demain.</p>
+      <div class="scene at-right" id="s1" data-a="0.00" data-b="0.124">
+        <div class="scene-in">
+          <svg class="mesure" viewBox="0 0 10 200" aria-hidden="true" preserveAspectRatio="none">
+            <path class="rline" d="M5 0 V200"/>
+            <path class="rtick" d="M0 40 H10 M0 100 H10 M0 160 H10"/>
+          </svg>
+          <div class="block">
+            <span class="kick">001 / Dakar</span>
+            <p class="headline" aria-hidden="true">
+              <span class="mask"><span class="line">Ça commence</span></span>
+              <span class="mask"><span class="line">par un téléphone.</span></span>
+            </p>
+            <span class="sr">Ça commence par un téléphone.</span>
+            <p class="sub">Ça ne s'arrête jamais là.</p>
+          </div>
         </div>
       </div>
 
-      <div class="band e-scatter" data-a="0.29" data-b="0.47" data-spread="0.5">
-        <div class="bandin">
-          <p class="htitle sm" data-split="char">Et pas seulement le téléphone.</p>
+      <div class="scene at-left" id="s2" data-a="0.175" data-b="0.299">
+        <div class="scene-in">
+          <svg class="mesure" viewBox="0 0 10 200" aria-hidden="true" preserveAspectRatio="none">
+            <path class="rline" d="M5 0 V200"/>
+            <path class="rtick" d="M0 40 H10 M0 100 H10 M0 160 H10"/>
+          </svg>
+          <div class="block">
+            <span class="kick">002 / Téléphones</span>
+            <p class="headline" aria-hidden="true">
+              <span class="mask"><span class="line">iPhone. Samsung.</span></span>
+              <span class="mask"><span class="line">Neufs, scellés, garantis.</span></span>
+            </p>
+            <span class="sr">iPhone. Samsung. Neufs, scellés, garantis.</span>
+            <p class="sub">Jamais ouverts avant toi. Le film d'origine en est la preuve.</p>
+          </div>
         </div>
       </div>
 
-      <div class="band e-punch" data-a="0.66" data-b="0.80">
-        <div class="bandin">
-          <p class="htitle sm" data-split="word">PlayStation, Switch, MacBook.</p>
+      <div class="scene at-right" id="s3" data-a="0.351" data-b="0.474">
+        <div class="scene-in">
+          <svg class="mesure" viewBox="0 0 10 200" aria-hidden="true" preserveAspectRatio="none">
+            <path class="rline" d="M5 0 V200"/>
+            <path class="rtick" d="M0 40 H10 M0 100 H10 M0 160 H10"/>
+          </svg>
+          <div class="block">
+            <span class="kick">003 / Consoles</span>
+            <p class="headline" aria-hidden="true">
+              <span class="mask"><span class="line">La même exigence</span></span>
+              <span class="mask"><span class="line">au rayon jeu.</span></span>
+            </p>
+            <span class="sr">La même exigence au rayon jeu.</span>
+            <p class="sub">Nintendo, PlayStation, et tout ce qui va avec.</p>
+          </div>
         </div>
       </div>
 
-      <div class="band e-rise live" data-a="0.80" data-b="1" data-ramp="0.05">
-        <div class="bandin">
-          <p class="htitle set" data-split="word">Tu paies quand tu l'as en main.</p>
-          <p class="hsub">Livraison 24h. Wave, Orange Money ou espèces à la réception.</p>
-          <div class="hrow">
-            <a class="btn btn-1" href="#categories">Voir la boutique</a>
-            <a class="btn btn-2 wa" href="#">Commander sur WhatsApp</a>
+      <div class="scene at-left" id="s4" data-a="0.526" data-b="0.650">
+        <div class="scene-in">
+          <svg class="mesure" viewBox="0 0 10 200" aria-hidden="true" preserveAspectRatio="none">
+            <path class="rline" d="M5 0 V200"/>
+            <path class="rtick" d="M0 40 H10 M0 100 H10 M0 160 H10"/>
+          </svg>
+          <div class="block">
+            <span class="kick">004 / Gaming</span>
+            <p class="headline" aria-hidden="true">
+              <span class="mask"><span class="line h-left">Console. Manette.</span></span>
+              <span class="mask"><span class="line h-right">Rien à configurer.</span></span>
+            </p>
+            <span class="sr">Console. Manette. Rien à configurer.</span>
+            <p class="sub">Tu branches, tu joues.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene at-right" id="s5" data-a="0.701" data-b="0.825">
+        <div class="scene-in">
+          <svg class="mesure" viewBox="0 0 10 200" aria-hidden="true" preserveAspectRatio="none">
+            <path class="rline" d="M5 0 V200"/>
+            <path class="rtick" d="M0 40 H10 M0 100 H10 M0 160 H10"/>
+          </svg>
+          <div class="block">
+            <span class="kick">005 / Ordinateurs</span>
+            <p class="headline" aria-hidden="true">
+              <span class="mask"><span class="line">Et de quoi</span></span>
+              <span class="mask"><span class="line">travailler dessus.</span></span>
+            </p>
+            <span class="sr">Et de quoi travailler dessus.</span>
+            <p class="sub">MacBook, iPad, accessoires.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene at-left live" id="s6" data-a="0.876" data-b="1">
+        <div class="scene-in">
+          <svg class="mesure" viewBox="0 0 10 200" aria-hidden="true" preserveAspectRatio="none">
+            <path class="rline" d="M5 0 V200"/>
+            <path class="rtick" d="M0 40 H10 M0 100 H10 M0 160 H10"/>
+          </svg>
+          <div class="block">
+            <span class="kick">006 / iStore Tech</span>
+            <p class="headline" aria-hidden="true">
+              <span class="mask"><span class="line">Un seul magasin.</span></span>
+              <span class="mask"><span class="line">Tout l'écosystème.</span></span>
+            </p>
+            <span class="sr">Un seul magasin. Tout l'écosystème.</span>
+            <p class="sub">Livraison à Dakar en 24 heures. Garantie deux ans.</p>
+            <div class="hrow">
+              <a class="btn btn-1" href="#categories">Voir la boutique</a>
+              <a class="btn btn-2 wa" href="#">Commander sur WhatsApp</a>
+            </div>
           </div>
         </div>
       </div>

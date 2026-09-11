@@ -141,32 +141,8 @@ function film(){
      produit qui s'assemble puis reste en place. Ici le film enchaîne six
      appareils, chacun avec son palier mesuré : accélérer écraserait les paliers
      sous le seuil de lisibilité du test de molette. */
-  /* Le defilement n'avance PAS le film a vitesse constante.
-     Le film alterne des paliers, ou un appareil est pose, et des morphs
-     violents. A vitesse constante un palier et une transformation recoivent
-     autant de defilement : le texte n'a jamais la place de se lire pendant que
-     les morphs paraissent precipites.
-     Ici chaque palier recoit 130 unites de course et chaque morph 54, soit un
-     rapport de 2,4 pour 1. Le film s'attarde la ou il y a a lire et traverse
-     vite les transformations.
-     MAP_T sont MES creux mesures, pas ceux annonces par le brief : deux
-     d'entre eux y etaient decales de 0,9 seconde. */
-  var MAP_P = [0, .1238, .1752, .2990, .3505, .4743, .5257, .6495, .7010, .8248, .8762, 1];
-  var MAP_T = [0, .1000, .1900, .2700, .3400, .4200, .5500, .6200, .7100, .7600, .8400, .9900];
-
-  function tempsFilm(p){
-    for (var i = 1; i < MAP_P.length; i++){
-      if (p <= MAP_P[i]){
-        var f = (p - MAP_P[i-1]) / (MAP_P[i] - MAP_P[i-1]);
-        return MAP_T[i-1] + f * (MAP_T[i] - MAP_T[i-1]);
-      }
-    }
-    return MAP_T[MAP_T.length - 1];
-  }
-
   function indexPour(p){
-    var t = tempsFilm(Math.min(1, Math.max(0, p)));
-    return Math.max(0, Math.min(NB_IMAGES - 1, Math.round(t * (NB_IMAGES - 1))));
+    return Math.max(0, Math.min(NB_IMAGES - 1, Math.round(p * (NB_IMAGES - 1))));
   }
 
   function dessine(i){
@@ -268,6 +244,7 @@ function film(){
     scenesBaties = true;
 
     gsap.registerPlugin(ScrollTrigger);
+    if (window.SplitText) gsap.registerPlugin(SplitText);
     ScrollTrigger.config({ ignoreMobileResize: true });
 
     // Lenis doit piloter ScrollTrigger, sinon les deux mesurent des positions
@@ -284,90 +261,135 @@ function film(){
     });
   }
 
-  /* Chaque scene suit la meme forme 1 / 3 / 1 : l'entree prend une unite, un
-     tween vide en tient trois, la sortie en prend une. Sans ce palier, une
-     ligne de temps en scrub etale son animation sur TOUTE la bande : les mots
-     s'assemblent pendant toute la duree du plan et repartent des qu'ils
-     arrivent. C'etait la vraie faute du build precedent. */
+  function chars(el){
+    if (!window.SplitText) return null;
+    var r = SplitText.create(el, { type: "chars" });
+    return r && r.chars && r.chars.length ? r.chars : null;
+  }
+
   function batirScene(el, i){
     var a = parseFloat(el.dataset.a), b = parseFloat(el.dataset.b);
-    var bloc  = el.querySelector(".block");
-    var lignes = el.querySelectorAll(".line");
-    var sub   = el.querySelector(".sub");
-    var row   = el.querySelector(".hrow");
-    var rl    = el.querySelector(".rline");
-    var id    = el.id;
-    var dernier = (i === scenes.length - 1);
+    var head = el.querySelector(".headline");
+    var sub  = el.querySelector(".sub");
+    var row  = el.querySelector(".hrow");
+    var rl   = el.querySelector(".rline");
+    var id   = el.id;
 
-    // la regle graduee se trace pendant l'entree
+    // SplitText reconstruit le texte en spans, ce qui detruit la phrase pour
+    // les lecteurs d'ecran. On garde une copie lisible a cote.
+    if (head){
+      var lu = document.createElement("span");
+      lu.className = "sr"; lu.textContent = head.textContent;
+      head.parentNode.insertBefore(lu, head);
+      head.setAttribute("aria-hidden", "true");
+    }
+
+    // la scene apparait avec sa fenetre
+    gsap.fromTo(el, { opacity: 0 }, {
+      opacity: 1, ease: "none", immediateRender: false,
+      scrollTrigger: {
+        trigger: zone,
+        start: function(){ return "top top-=" + (Math.max(0, a - 0.02) * courseHero()) },
+        end:   function(){ return "top top-=" + ((a + 0.03) * courseHero()) },
+        scrub: 0.5, invalidateOnRefresh: true
+      }
+    });
+    // la derniere ne repart jamais : l'appel a l'action doit tenir
+    if (i < scenes.length - 1){
+      gsap.to(el, {
+        opacity: 0, ease: "none", immediateRender: false,
+        scrollTrigger: {
+          trigger: zone,
+          start: function(){ return "top top-=" + ((b - 0.03) * courseHero()) },
+          end:   function(){ return "top top-=" + (b * courseHero()) },
+          scrub: 0.5, invalidateOnRefresh: true
+        }
+      });
+    }
+
+    // la regle graduee se trace vers le bas
     if (rl && rl.getTotalLength){
       var L = rl.getTotalLength();
       gsap.set(rl, { strokeDasharray: L, strokeDashoffset: L });
+      gsap.to(rl, { strokeDashoffset: 0, ease: "none", scrollTrigger: fenetre(a, b) });
     }
 
     var tl = gsap.timeline({ scrollTrigger: fenetre(a, b) });
 
-    /* La scene doit etre invisible AVANT sa bande et APRES. Une ligne de temps
-       en scrub est bloquee a sa progression 0 avant la bande et a 1 apres :
-       il suffit donc qu'elle commence et finisse a opacite nulle pour que la
-       scene n'existe que pendant son plan. Sans ca les six scenes se
-       superposent a l'ecran, ce qui est exactement ce qui arrivait. */
-    if (i === 0) gsap.set(el, { opacity: 1 });   // sa bande commence a zero
-    else tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, 0);
+    if (id === "s1"){
+      // la mise au point arrive : une copie floue s'efface sous la nette.
+      // Le flou est statique, jamais anime : filter n'est pas composable.
+      var box = document.createElement("div");
+      box.className = "pile";
+      head.parentNode.insertBefore(box, head);
+      box.appendChild(head);
+      var soft = head.cloneNode(true);
+      soft.classList.add("soft");
+      soft.setAttribute("aria-hidden", "true");
+      box.appendChild(soft);
+      // La mise au point joue une seule fois au chargement, jamais au scroll :
+      // a progression zero le titre resterait flou, alors que le heros doit
+      // s'ouvrir sur des mots nets avant le moindre geste du visiteur.
+      gsap.set(soft, { opacity: 1 });
+      gsap.to(soft, { opacity: 0, duration: 1.2, ease: "power2.out", delay: 0.15 });
 
-    // --- l'entree, une unite -------------------------------------------------
-    if (id === "s4"){
-      // Deux bras liquides entrent par les deux bords du cadre : les moities du
-      // titre s'ecartent pareil. Le seul moment appuye de la page.
-      var g = el.querySelector(".h-left"), d = el.querySelector(".h-right");
-      if (g) tl.from(g, { xPercent:  60, opacity: 0, duration: 1, ease: "power3.out" }, 0);
-      if (d) tl.from(d, { xPercent: -60, opacity: 0, duration: 1, ease: "power3.out" }, 0);
+    } else if (id === "s2"){
+      // les caracteres sortent du centre du cadre, la ou l'appareil vient de
+      // se reformer, et rejoignent la colonne de gauche
+      var c2 = chars(head);
+      if (c2) tl.from(c2, {
+        x: function(){ return gsap.utils.random(110, 280) },
+        y: function(){ return gsap.utils.random(-60, 60) },
+        rotation: function(){ return gsap.utils.random(-24, 24) },
+        opacity: 0, stagger: { each: 0.02, from: "random" }, ease: "power3.out"
+      }, 0);
+
+    } else if (id === "s3"){
+      // les pieces se mettent en place, en ordre de lecture
+      var c3 = chars(head);
+      if (c3) tl.from(c3, {
+        x: 40, opacity: 0, stagger: { each: 0.018, from: "end" }, ease: "power2.out"
+      }, 0);
+
+    } else if (id === "s4"){
+      // deux bras liquides entrent par les deux bords : le titre s'ecarte
+      var c4 = chars(head);
+      if (c4){
+        var mid = Math.ceil(c4.length / 2);
+        tl.from(c4.slice(0, mid), { x: 110, opacity: 0,
+            stagger: { each: 0.012, from: "end" }, ease: "power3.out" }, 0)
+          .from(c4.slice(mid), { x: -110, opacity: 0,
+            stagger: { each: 0.012, from: "start" }, ease: "power3.out" }, 0);
+      }
+
     } else if (id === "s5"){
       // le portable s'ouvre vers la camera
-      tl.from(lignes, { scale: 0.86, rotationY: 10, transformPerspective: 900,
-        opacity: 0, duration: 1, stagger: 0.08, ease: "power2.out" }, 0);
+      tl.from(head, { scale: 0.84, rotationY: 12, transformPerspective: 800,
+        opacity: 0, ease: "power2.out" }, 0);
+
     } else {
-      // Les lignes montent hors de leur masque. Lisible a chaque image de
-      // l'entree, contrairement a des caracteres qui volent de partout.
-      tl.from(lignes, { yPercent: 112, duration: 1, stagger: 0.09, ease: "power3.out" }, 0);
+      var w6 = null;
+      if (window.SplitText){
+        var r6 = SplitText.create(head, { type: "words" });
+        w6 = r6 && r6.words && r6.words.length ? r6.words : null;
+      }
+      if (w6) tl.from(w6, { y: 40, opacity: 0, stagger: 0.06, ease: "power3.out" }, 0);
+      else    tl.from(head, { y: 40, opacity: 0, ease: "power3.out" }, 0);
     }
-    if (rl) tl.to(rl, { strokeDashoffset: 0, duration: 1, ease: "none" }, 0);
-    if (sub) tl.from(sub, { yPercent: 40, opacity: 0, duration: 0.8, ease: "power2.out" }, 0.4);
-    if (row) tl.from(row.children, { yPercent: 40, opacity: 0, duration: 0.8,
-                                     stagger: 0.09, ease: "power2.out" }, 0.58);
 
-    // --- le palier, trois unites : rien ne bouge -----------------------------
-    tl.to({}, { duration: 3 });
-
-    // --- la sortie, une unite. La derniere scene ne repart jamais ------------
-    if (!dernier){
-      // C'est la scene entiere qui s'efface, regle graduee comprise, et non
-      // seulement le bloc de texte : sinon la regle reste seule a l'ecran.
-      tl.to(el, { opacity: 0, duration: 1, ease: "power2.in" });
-      if (rl) tl.to(rl, { strokeDashoffset: rl.getTotalLength ? rl.getTotalLength() : 200,
-                          duration: 1, ease: "power2.in" }, "<");
-    }
+    if (sub) tl.from(sub, { y: 20, opacity: 0, ease: "power2.out" }, 0.42);
+    if (row) tl.from(row.children, { y: 20, opacity: 0, stagger: 0.08, ease: "power2.out" }, 0.58);
   }
 
   /* La premiere scene doit etre lisible avant le moindre scroll, sinon le heros
-     s'ouvre sur du film sans un mot. */
-  /* La scene 1 doit etre lisible avant le moindre scroll, sinon le heros
      s'ouvre sur du film sans un mot. */
   function ouvertureScene1(){
     var s1 = document.getElementById("s1");
     if (!s1 || !window.gsap) return;
     gsap.set(s1, { opacity: 1 });
-    var cibles = s1.querySelectorAll(".kick,.line,.sub");
-    gsap.from(cibles, {
-      yPercent: 60, opacity: 0, duration: 1.2, stagger: 0.1, ease: "power3.out"
+    gsap.from(s1.querySelectorAll(".kick,.headline,.sub"), {
+      opacity: 0, y: 14, duration: 1.1, stagger: 0.12, ease: "power2.out"
     });
-    /* Filet deja paye une fois sur ce projet : ne jamais accrocher l'apparition
-       d'un contenu a requestAnimationFrame seul. Sur une page qui ne peint pas,
-       l'animation ne demarre jamais et la premiere phrase du heros resterait
-       invisible. Le minuteur repose l'etat final quoi qu'il arrive. */
-    setTimeout(function(){
-      gsap.set(cibles, { yPercent: 0, opacity: 1, clearProps: "transform" });
-    }, 1600);
   }
 
   /* --- le chargement des images : les premières tout de suite, le reste ensuite --- */
