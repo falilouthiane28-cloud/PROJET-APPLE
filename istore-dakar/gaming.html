@@ -56,8 +56,27 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
         <span class="ctatxt">WhatsApp</span>
       </a>
+      <button class="burger" id="burger" type="button"
+              aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
+
+  <div class="menu" id="menu" hidden>
+    <nav class="menu-in" aria-label="Menu principal">
+      <a href="index.html">Accueil</a>
+      <a href="iphone-apple.html">iPhone</a>
+      <a href="samsung-android.html">Samsung</a>
+      <a href="gaming.html" class="on" aria-current="page">Gaming</a>
+      <a href="machines.html">Machines</a>
+      <a href="audio.html">Audio</a>
+      <a href="accessoires.html">Accessoires</a>
+      <a class="menu-cta wa" href="#">Commander sur WhatsApp</a>
+    </nav>
+  </div>
 </header>
 <main id="main" tabindex="-1">
 
@@ -79,7 +98,7 @@
   <div class="wrap">
     <div class="grid st">
         <article class="card">
-          <a class="pic" href="produit.html?id=ps5-slim"><img src="assets/produits/ps5-slim.webp" alt="PlayStation 5 Slim, Lecteur disque." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=ps5-slim"><img src="assets/produits/ps5-slim.webp" alt="PlayStation 5 Slim, Lecteur disque." width="500" height="500" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=ps5-slim">PlayStation 5 Slim</a></h3>
           <p class="var">Lecteur disque</p>
@@ -87,7 +106,7 @@
           <a class="add" href="produit.html?id=ps5-slim">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=ps5-digital"><img src="assets/produits/ps5-digital.webp" alt="PlayStation 5 Digital, Sans lecteur." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=ps5-digital"><img src="assets/produits/ps5-digital.webp" alt="PlayStation 5 Digital, Sans lecteur." width="736" height="1104" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=ps5-digital">PlayStation 5 Digital</a></h3>
           <p class="var">Sans lecteur</p>
@@ -95,7 +114,7 @@
           <a class="add" href="produit.html?id=ps5-digital">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=ps5-pro"><img src="assets/produits/ps5-pro.webp" alt="PlayStation 5 Pro, Haut de gamme." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=ps5-pro"><img src="assets/produits/ps5-pro.webp" alt="PlayStation 5 Pro, Haut de gamme." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=ps5-pro">PlayStation 5 Pro</a></h3>
           <p class="var">Haut de gamme</p>
@@ -103,7 +122,7 @@
           <a class="add" href="produit.html?id=ps5-pro">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=dualsense"><img src="assets/produits/dualsense.webp" alt="Manette DualSense, Sans fil · PS5." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=dualsense"><img src="assets/produits/dualsense.webp" alt="Manette DualSense, Sans fil · PS5." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=dualsense">Manette DualSense</a></h3>
           <p class="var">Sans fil · PS5</p>
@@ -111,7 +130,7 @@
           <a class="add" href="produit.html?id=dualsense">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=dualsense-edge"><img src="assets/produits/dualsense-edge.webp" alt="Manette DualSense Edge, Pro · PS5." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=dualsense-edge"><img src="assets/produits/dualsense-edge.webp" alt="Manette DualSense Edge, Pro · PS5." width="736" height="414" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=dualsense-edge">Manette DualSense Edge</a></h3>
           <p class="var">Pro · PS5</p>
@@ -119,7 +138,7 @@
           <a class="add" href="produit.html?id=dualsense-edge">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=switch-oled"><img src="assets/produits/switch-oled.webp" alt="Nintendo Switch OLED, Écran 7 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=switch-oled"><img src="assets/produits/switch-oled.webp" alt="Nintendo Switch OLED, Écran 7 pouces." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=switch-oled">Nintendo Switch OLED</a></h3>
           <p class="var">Écran 7 pouces</p>
@@ -127,7 +146,7 @@
           <a class="add" href="produit.html?id=switch-oled">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=switch-lite"><img src="assets/produits/switch-lite.webp" alt="Nintendo Switch Lite, Portable." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=switch-lite"><img src="assets/produits/switch-lite.webp" alt="Nintendo Switch Lite, Portable." width="600" height="600" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=switch-lite">Nintendo Switch Lite</a></h3>
           <p class="var">Portable</p>
@@ -135,7 +154,7 @@
           <a class="add" href="produit.html?id=switch-lite">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=joycon"><img src="assets/produits/joycon.webp" alt="Manettes Joy-Con, La paire · Switch 2." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=joycon"><img src="assets/produits/joycon.webp" alt="Manettes Joy-Con, La paire · Switch 2." width="535" height="536" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=joycon">Manettes Joy-Con</a></h3>
           <p class="var">La paire · Switch 2</p>
@@ -143,7 +162,7 @@
           <a class="add" href="produit.html?id=joycon">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=switch-pro-controller"><img src="assets/produits/switch-pro-controller.webp" alt="Manette Pro Controller, Sans fil · Switch." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=switch-pro-controller"><img src="assets/produits/switch-pro-controller.webp" alt="Manette Pro Controller, Sans fil · Switch." width="735" height="386" loading="lazy" decoding="async"></a>
           <span class="badge">Livraison 24h</span>
           <h3><a href="produit.html?id=switch-pro-controller">Manette Pro Controller</a></h3>
           <p class="var">Sans fil · Switch</p>
@@ -151,7 +170,7 @@
           <a class="add" href="produit.html?id=switch-pro-controller">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=xbox-series-x"><img src="assets/produits/xbox-series-x.webp" alt="Xbox Series X, 1 To." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=xbox-series-x"><img src="assets/produits/xbox-series-x.webp" alt="Xbox Series X, 1 To." width="736" height="970" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=xbox-series-x">Xbox Series X</a></h3>
           <p class="var">1 To</p>
@@ -159,7 +178,7 @@
           <a class="add" href="produit.html?id=xbox-series-x">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=pulse-3d"><img src="assets/produits/pulse-3d.webp" alt="Casque PULSE 3D, Sans fil · PS5." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=pulse-3d"><img src="assets/produits/pulse-3d.webp" alt="Casque PULSE 3D, Sans fil · PS5." width="736" height="738" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=pulse-3d">Casque PULSE 3D</a></h3>
           <p class="var">Sans fil · PS5</p>
@@ -167,7 +186,7 @@
           <a class="add" href="produit.html?id=pulse-3d">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=station-charge"><img src="assets/produits/station-charge.webp" alt="Station de charge, Deux manettes · PS5." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=station-charge"><img src="assets/produits/station-charge.webp" alt="Station de charge, Deux manettes · PS5." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=station-charge">Station de charge</a></h3>
           <p class="var">Deux manettes · PS5</p>

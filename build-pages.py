@@ -59,14 +59,38 @@ def nav_html(active):
     return "".join('\n      <a href="%s"%s>%s</a>' % (u, ' class="on" aria-current="page"' if u==active else "", esc(l))
                    for u,l in NAV)
 
+def menu_html(active):
+    """Les memes liens que la barre, mais en pleine largeur pour le doigt."""
+    return "".join('\n      <a href="%s"%s>%s</a>'
+                   % (u, ' class="on" aria-current="page"' if u == active else "", esc(l))
+                   for u, l in NAV)
+
 def fmt(n):
     s = str(n); out=""
     while len(s)>3: out = " "+s[-3:]+out; s = s[:-3]
     return (s+out).strip()+" F"
 
+_DIMS = {}
+def dims(nom):
+    """Dimensions reelles de l'image, lues une fois. Sans width et height sur la
+       balise, le navigateur ne reserve pas la place et la page saute quand
+       l'image arrive : c'est la cause la plus frequente d'un decalage de mise
+       en page au chargement."""
+    if nom in _DIMS: return _DIMS[nom]
+    try:
+        from PIL import Image
+        with Image.open(os.path.join(OUT, "assets", "produits", nom)) as im:
+            _DIMS[nom] = im.size
+    except Exception:
+        _DIMS[nom] = (None, None)
+    return _DIMS[nom]
+
 def carte(p):
     if p["img"]:
-        vis = '<img src="assets/produits/%s" alt="%s, %s." loading="lazy">' % (p["img"], esc(p["nom"]), esc(p["sub"]))
+        w, h = dims(p["img"])
+        taille = ' width="%d" height="%d"' % (w, h) if w else ''
+        vis = '<img src="assets/produits/%s" alt="%s, %s."%s loading="lazy" decoding="async">' % (
+              p["img"], esc(p["nom"]), esc(p["sub"]), taille)
     else:
         vis = '<span class="sil" role="img" aria-label="%s, illustration technique en attendant la photo">%s</span>' % (esc(p["nom"]), SIL.get(p["sil"], SIL["acc"]))
     return '''        <article class="card">
@@ -131,8 +155,20 @@ HEADER = '''<header class="nav" role="banner">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
         <span class="ctatxt">WhatsApp</span>
       </a>
+      <button class="burger" id="burger" type="button"
+              aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
+
+  <div class="menu" id="menu" hidden>
+    <nav class="menu-in" aria-label="Menu principal">{menu}
+      <a class="menu-cta wa" href="#">Commander sur WhatsApp</a>
+    </nav>
+  </div>
 </header>
 '''
 
@@ -593,7 +629,7 @@ def main():
         m = PAGES_META[k]
         prods = C.par_cat(k)
         page = (HEAD.format(titre=esc(nom)+" · iStore Tech Dakar", meta=esc(m["meta"]), fichier=url)
-                + HEADER.format(nav=nav_html(url))
+                + HEADER.format(nav=nav_html(url), menu=menu_html(url))
                 + CAT_TPL.format(nom=esc(nom), kicker=m["kicker"], h1=esc(m["h1"]),
                                  lede=esc(m["lede"]), n=len(prods),
                                  cartes="\n".join(carte(p) for p in prods),
@@ -609,7 +645,7 @@ def main():
         ("favoris.html","Mes favoris","favoris","Les produits que tu as mis de côté chez iStore Tech Dakar."),
     ]:
         page = (HEAD.format(titre=esc(nom)+" · iStore Tech Dakar", meta=esc(meta), fichier=fichier)
-                + HEADER.format(nav=nav_html(fichier))
+                + HEADER.format(nav=nav_html(fichier), menu=menu_html(fichier))
                 + SIMPLE_TPL.format(nom=esc(nom), hote=hote, final=FINAL)
                 + FOOTER.format(wa=C.WA))
         io.open(os.path.join(OUT,fichier),"w",encoding="utf-8",newline="").write(page)
@@ -620,7 +656,7 @@ def main():
     accueil = (HEAD.format(titre=u"iStore Tech Dakar \u00b7 Neuf, scell\u00e9, livr\u00e9 demain.",
                            meta=u"iPhone, Samsung, PlayStation, Switch et MacBook \u00e0 Dakar. Neufs et scell\u00e9s, livraison 24h partout au S\u00e9n\u00e9gal, paiement \u00e0 la r\u00e9ception par Wave, Orange Money ou esp\u00e8ces.",
                            fichier="index.html")
-               + HEADER.format(nav=nav_html("index.html"))
+               + HEADER.format(nav=nav_html("index.html"), menu=menu_html("index.html"))
                + INDEX_TPL.format(n=len(C.PRODUITS), cats=cartes_categories(),
                                   tops="\n".join(carte(p) for p in tops),
                                   rassure=RASSURE, final=FINAL,

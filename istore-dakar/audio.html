@@ -56,8 +56,27 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
         <span class="ctatxt">WhatsApp</span>
       </a>
+      <button class="burger" id="burger" type="button"
+              aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
+
+  <div class="menu" id="menu" hidden>
+    <nav class="menu-in" aria-label="Menu principal">
+      <a href="index.html">Accueil</a>
+      <a href="iphone-apple.html">iPhone</a>
+      <a href="samsung-android.html">Samsung</a>
+      <a href="gaming.html">Gaming</a>
+      <a href="machines.html">Machines</a>
+      <a href="audio.html" class="on" aria-current="page">Audio</a>
+      <a href="accessoires.html">Accessoires</a>
+      <a class="menu-cta wa" href="#">Commander sur WhatsApp</a>
+    </nav>
+  </div>
 </header>
 <main id="main" tabindex="-1">
 
@@ -79,7 +98,7 @@
   <div class="wrap">
     <div class="grid st">
         <article class="card">
-          <a class="pic" href="produit.html?id=airpods-max"><img src="assets/produits/airpods-max-select-202409-midnight.webp" alt="AirPods Max, Réduction de bruit." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=airpods-max"><img src="assets/produits/airpods-max-select-202409-midnight.webp" alt="AirPods Max, Réduction de bruit." width="900" height="692" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=airpods-max">AirPods Max</a></h3>
           <p class="var">Réduction de bruit</p>
@@ -87,7 +106,7 @@
           <a class="add" href="produit.html?id=airpods-max">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=airpods-pro"><img src="assets/produits/airpods-pro.webp" alt="AirPods Pro, Réduction de bruit." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=airpods-pro"><img src="assets/produits/airpods-pro.webp" alt="AirPods Pro, Réduction de bruit." width="735" height="690" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=airpods-pro">AirPods Pro</a></h3>
           <p class="var">Réduction de bruit</p>
@@ -95,7 +114,7 @@
           <a class="add" href="produit.html?id=airpods-pro">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=airpods"><img src="assets/produits/airpods.webp" alt="AirPods, Boîtier de charge." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=airpods"><img src="assets/produits/airpods.webp" alt="AirPods, Boîtier de charge." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=airpods">AirPods</a></h3>
           <p class="var">Boîtier de charge</p>
@@ -103,7 +122,7 @@
           <a class="add" href="produit.html?id=airpods">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-buds"><img src="assets/produits/galaxy-buds.webp" alt="Galaxy Buds, Réduction de bruit." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-buds"><img src="assets/produits/galaxy-buds.webp" alt="Galaxy Buds, Réduction de bruit." width="736" height="920" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=galaxy-buds">Galaxy Buds</a></h3>
           <p class="var">Réduction de bruit</p>
@@ -111,7 +130,7 @@
           <a class="add" href="produit.html?id=galaxy-buds">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=casque-gamer"><img src="assets/produits/casque-gamer.webp" alt="Casque gamer filaire, Micro détachable." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=casque-gamer"><img src="assets/produits/casque-gamer.webp" alt="Casque gamer filaire, Micro détachable." width="736" height="954" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=casque-gamer">Casque gamer filaire</a></h3>
           <p class="var">Micro détachable</p>
@@ -119,7 +138,7 @@
           <a class="add" href="produit.html?id=casque-gamer">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=casque-bluetooth"><img src="assets/produits/casque-bluetooth.webp" alt="Casque Bluetooth, Autonomie 40h." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=casque-bluetooth"><img src="assets/produits/casque-bluetooth.webp" alt="Casque Bluetooth, Autonomie 40h." width="679" height="786" loading="lazy" decoding="async"></a>
           <span class="badge">Livraison 24h</span>
           <h3><a href="produit.html?id=casque-bluetooth">Casque Bluetooth</a></h3>
           <p class="var">Autonomie 40h</p>
@@ -127,7 +146,7 @@
           <a class="add" href="produit.html?id=casque-bluetooth">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=enceinte-portable"><img src="assets/produits/enceinte-portable.webp" alt="Enceinte portable, Étanche." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=enceinte-portable"><img src="assets/produits/enceinte-portable.webp" alt="Enceinte portable, Étanche." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=enceinte-portable">Enceinte portable</a></h3>
           <p class="var">Étanche</p>
@@ -135,7 +154,7 @@
           <a class="add" href="produit.html?id=enceinte-portable">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=enceinte-salon"><img src="assets/produits/enceinte-salon.webp" alt="Enceinte de salon, Sans fil." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=enceinte-salon"><img src="assets/produits/enceinte-salon.webp" alt="Enceinte de salon, Sans fil." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=enceinte-salon">Enceinte de salon</a></h3>
           <p class="var">Sans fil</p>

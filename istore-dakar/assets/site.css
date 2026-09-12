@@ -28,6 +28,11 @@
 
   /* halo blanc : le texte sombre reste lisible sur une image claire */
   --tshadow:0 1px 2px rgba(250,250,248,.95),0 3px 14px rgba(250,250,248,.9),0 12px 46px rgba(250,250,248,.85);
+  /* Les durées, définies une fois. Micro pour le survol et le focus, ui pour
+     les panneaux et les cartes, reveal pour les entrées de section. Une sortie
+     tourne à environ 60% de son entrée : un élément qui part aussi lentement
+     qu'il est arrivé paraît traîner. */
+  --t-micro:180ms; --t-ui:320ms; --t-reveal:820ms;
   --gut:clamp(20px,5vw,64px);
   --maxw:1240px;
 }
@@ -102,7 +107,11 @@ p{margin:0}
 .nav{position:fixed;top:16px;left:0;right:0;z-index:100;display:flex;justify-content:center;
   padding:0 var(--gut);pointer-events:none}
 .navin{
-  pointer-events:auto;position:relative;display:flex;align-items:center;gap:clamp(10px,2.4vw,30px);
+  /* z-index au-dessus du panneau du menu. Sans ca le panneau recouvre la barre
+     et le bouton de fermeture n'est plus cliquable : le visiteur se retrouve
+     enferme dans le menu, sauf a connaitre la touche Echap. */
+  pointer-events:auto;position:relative;z-index:100;
+  display:flex;align-items:center;gap:clamp(10px,2.4vw,30px);
   width:100%;max-width:var(--maxw);padding:9px 9px 9px 18px;
   background:rgba(255,255,255,.74);border:1px solid var(--hairline);border-radius:999px;
   backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
@@ -134,7 +143,61 @@ body.ready .navin{transform:none;opacity:1}
   background:var(--ink);color:#fff;font-weight:700;font-size:.86rem;
   transition:transform .35s var(--spring),background .35s var(--precise)}
 .navcta:hover{background:#000;transform:translateY(-2px);box-shadow:var(--shadow-2)}
+/* ---- le menu hamburger, sous 900px ----
+   Sous cette largeur la barre de liens disparait : sans ce menu il n'y avait
+   plus aucun moyen d'atteindre les pages categorie depuis un telephone. */
 @media (max-width:900px){.navlinks{display:none}}
+
+.burger{display:none;flex:0 0 auto;width:44px;height:44px;border-radius:999px;
+  align-items:center;justify-content:center;gap:5px;flex-direction:column;
+  background:transparent;border:1px solid var(--hairline);cursor:pointer}
+.burger-l{display:block;width:18px;height:1.6px;border-radius:2px;background:var(--ink);
+  transition:transform var(--t-ui) var(--precise),opacity var(--t-micro) var(--precise)}
+@media (max-width:900px){.burger{display:inline-flex}}
+/* Sous 900px la barre recevait deux icones, le bouton WhatsApp ET le hamburger :
+   ca ne tient pas, la rangee passait a la ligne et le hamburger sortait par le
+   haut de l'ecran, a -50px. Le bouton WhatsApp est le premier element du menu,
+   il n'a donc pas besoin d'etre aussi dans la barre. */
+@media (max-width:900px){
+  .navtools{display:flex;align-items:center;gap:8px;flex:0 0 auto;margin-left:auto}
+  .navcta{display:none}
+}
+/* La croix se forme par transformation seule, jamais par changement de taille. */
+.burger[aria-expanded="true"] .burger-l:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+.burger[aria-expanded="true"] .burger-l:nth-child(2){opacity:0;transform:scaleX(.4)}
+.burger[aria-expanded="true"] .burger-l:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+
+.menu{position:fixed;inset:0;z-index:99;pointer-events:none;
+  background:rgba(250,250,248,.97);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  opacity:0;transition:opacity var(--t-ui) var(--precise)}
+.menu.open{pointer-events:auto;opacity:1}
+.menu-in{position:absolute;left:0;right:0;top:96px;bottom:0;overflow-y:auto;
+  display:flex;flex-direction:column;gap:4px;padding:18px var(--gut) 40px}
+.menu-in a{display:flex;align-items:center;min-height:56px;padding:0 6px;
+  font-family:var(--display);font-weight:600;letter-spacing:-.02em;
+  font-size:clamp(1.5rem,6vw,2.1rem);color:var(--ink-2);
+  border-bottom:1px solid var(--hairline);
+  opacity:0;transform:translateY(14px);
+  transition:opacity var(--t-ui) var(--precise),transform var(--t-ui) var(--glide),
+             color var(--t-micro) var(--precise)}
+.menu.open .menu-in a{opacity:1;transform:none}
+.menu-in a.on{color:var(--ink)}
+.menu-in a:hover,.menu-in a:focus-visible{color:var(--ink)}
+.menu-cta{margin-top:22px;justify-content:center;min-height:52px;border-radius:999px;
+  background:var(--ink);color:#fff!important;border-bottom:0!important;
+  font-family:var(--body)!important;font-size:.98rem!important;font-weight:700}
+/* Les liens arrivent en cascade. Le decalage est retire une fois ouvert, sinon
+   chaque survol garderait le retard de sa position dans la liste. */
+.menu.open .menu-in a:nth-child(1){transition-delay:40ms}
+.menu.open .menu-in a:nth-child(2){transition-delay:80ms}
+.menu.open .menu-in a:nth-child(3){transition-delay:120ms}
+.menu.open .menu-in a:nth-child(4){transition-delay:160ms}
+.menu.open .menu-in a:nth-child(5){transition-delay:200ms}
+.menu.open .menu-in a:nth-child(6){transition-delay:240ms}
+.menu.open .menu-in a:nth-child(7){transition-delay:280ms}
+.menu.open.pose .menu-in a:nth-child(n){transition-delay:0ms}
+body.menu-ouvert{overflow:hidden}
 @media (max-width:420px){.brand b{display:none}}
 
 /* ============================================================
@@ -150,9 +213,16 @@ body.ready .navin{transform:none;opacity:1}
 .btn-2{border:1px solid var(--hairline-strong);color:var(--ink);background:rgba(255,255,255,.7)}
 .btn-2:hover{border-color:var(--ink);transform:translateY(-2px);background:#fff}
 .btn svg{width:17px;height:17px;flex:0 0 auto}
+/* Au doigt, toute cible fait au moins 44 par 44. Les icones panier et favoris
+   etaient en dessous : c'est le defaut d'accessibilite le plus frequent sur une
+   barre de navigation, et le plus penalisant sur telephone.
+   On ne change jamais le type d'affichage sans redeclarer l'alignement : un
+   inline-flex nu calerait le contenu a gauche au lieu de le centrer. */
 @media (pointer:coarse){
   .btn{min-height:48px}
   .navcta{min-height:44px}
+  .navic{min-height:44px;min-width:44px;
+    display:inline-flex;align-items:center;justify-content:center}
 }
 
 /* ============================================================
@@ -245,7 +315,14 @@ body.ready .navin{transform:none;opacity:1}
 .bands{position:absolute;inset:0;z-index:2}
 .scene{position:absolute;top:0;bottom:0;width:var(--cw,23%);
   display:flex;flex-direction:column;justify-content:center;
-  opacity:0;pointer-events:none;text-shadow:var(--tshadow)}
+  opacity:0;pointer-events:none}
+/* Pas de halo derriere le texte du heros. Mesure : le contraste va de 13,5:1 a
+   17,2:1 sur toute la plage du fond, pour une exigence de 4,5:1. Le halo
+   n'achetait donc aucune lisibilite et se voyait comme un rectangle plus clair
+   derriere les mots. Le systeme de voiles de la skill est ecrit pour du texte
+   clair sur images sombres : il ne s'inverse pas en changeant juste la couleur.
+   Le halo reste sur le heros statique, ou le texte est pose sur une vraie
+   photo. */
 .scene.at-left{left:var(--gut)}
 .scene.at-right{right:var(--gut);text-align:right}
 .scene.live{pointer-events:auto}
@@ -302,7 +379,16 @@ body.ready .navin{transform:none;opacity:1}
 .sub{margin:18px 0 0;color:var(--ink-2);
   font-size:clamp(.95rem,1.15vw,1.2rem);line-height:1.5;max-width:34ch}
 .scene.at-right .sub{margin-left:auto}
-.hrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+/* Centre par defaut. En reecrivant cette regle pour les colonnes du heros,
+   le centrage d'origine avait saute : la section de contact se retrouvait avec
+   son bouton colle a gauche, a 658px du centre, alors que le titre, la ligne de
+   sous-titre et l'adresse etaient centres a 4px pres. Un seul element cassait
+   une colonne centree, et ca se lit comme une page en panne.
+   align-items garantit en plus que les deux boutons partagent leur ligne de
+   base quelle que soit leur hauteur de contenu. */
+.hrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;
+  justify-content:center;align-items:center}
+.scene.at-left  .hrow{justify-content:flex-start}
 .scene.at-right .hrow{justify-content:flex-end}
 .hrow .btn{padding:13px 22px;font-size:.88rem}
 
@@ -366,6 +452,27 @@ body.ready .navin{transform:none;opacity:1}
              linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%);
   mask-composite:intersect}
 .stillin{position:relative;z-index:2;max-width:min(94vw,760px);text-shadow:var(--tshadow);
+
+/* ---- l'entree du heros statique (telephone et tablette) ----
+   Le defilement image par image est coupe sur ces ecrans, et le heros restait
+   donc completement fige : c'est ce qui se lisait comme "aucune animation sur
+   mobile". L'image et le texte arrivent maintenant en cascade au chargement.
+   Transform et opacity uniquement. */
+.still .stillimg,.stillin>*{
+  opacity:0;transform:translateY(16px);
+  transition:opacity var(--t-reveal) var(--glide),transform var(--t-reveal) var(--glide)}
+body.ready .still .stillimg,body.ready .stillin>*{opacity:1;transform:none}
+body.ready .still .stillimg{transition-delay:60ms}
+body.ready .stillin>*:nth-child(1){transition-delay:220ms}
+body.ready .stillin>*:nth-child(2){transition-delay:320ms}
+body.ready .stillin>*:nth-child(3){transition-delay:420ms}
+body.ready .stillin>*:nth-child(4){transition-delay:520ms}
+body.ready .stillin>*:nth-child(5){transition-delay:620ms}
+/* Les retards sont retires une fois l'entree jouee. La regle doit egaler ou
+   battre la specificite des :nth-child qu'elle retire, sinon elle ne s'applique
+   jamais et chaque survol garde le retard de sa position, pour toujours. */
+body.pose .stillin>*:nth-child(n),
+body.pose .still .stillimg{transition-delay:0ms}
   margin-top:clamp(-12px,-1vh,-4px)}
 
 /* ============================================================
@@ -516,8 +623,11 @@ body.ready .navin{transform:none;opacity:1}
   transition:opacity .45s var(--precise)}
 .card:hover{transform:translateY(-3px)}
 .card:hover::after{opacity:1}
+/* Le cadre ne change JAMAIS de taille : l'image grossit a l'interieur, donc
+   rien ne repousse ce qui suit. Sans overflow:hidden, le zoom au survol
+   deborde de 8px et passe par-dessus le badge. */
 .pic{height:172px;display:flex;align-items:center;justify-content:center;
-  margin-bottom:16px}
+  margin-bottom:16px;overflow:hidden;border-radius:10px}
 .pic img{height:auto;width:auto;max-height:172px;max-width:100%;object-fit:contain;
   transition:transform .55s var(--spring)}
 .card:hover .pic img{transform:scale(1.045)}
@@ -528,10 +638,21 @@ body.ready .navin{transform:none;opacity:1}
 .card .var{margin-top:5px;color:var(--ink-2);font-size:.82rem}
 .card .price{margin-top:auto;padding-top:15px;font-family:var(--mono);font-size:.8rem;
   font-weight:500;letter-spacing:.05em;color:var(--ink)}
+/* L'ajout au panier monte depuis le bas de la carte au survol. Il reste
+   visible et atteignable au clavier et au doigt : il ne depend pas du survol
+   pour exister, seulement pour se detacher. Le prix, lui, ne bouge pas. */
 .card .add{margin-top:13px;padding:11px 16px;border-radius:999px;text-align:center;
   background:var(--ink);color:#fff;font-weight:700;font-size:.83rem;
-  transition:background .35s var(--precise),transform .35s var(--spring)}
-.card .add:hover{background:#000;transform:translateY(-1px)}
+  opacity:.86;transform:translateY(4px);
+  transition:opacity var(--t-ui,320ms) var(--precise),
+             transform var(--t-ui,320ms) var(--spring),
+             background var(--t-micro,180ms) var(--precise)}
+.card:hover .add,.card:focus-within .add{opacity:1;transform:translateY(0)}
+.card .add:hover{background:#000}
+@media (pointer:coarse){
+  .card .add{opacity:1;transform:none;min-height:44px;
+    display:flex;align-items:center;justify-content:center}
+}
 
 /* ============================================================
    11. VÉRIFICATION

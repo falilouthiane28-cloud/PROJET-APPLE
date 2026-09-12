@@ -83,17 +83,31 @@ function basculerFavori(id){
 }
 
 /* ---------- compteurs dans la barre du haut ---------- */
+/* La pastille est un chiffre posé sur une icône : à la lecture vocale elle
+   arrive détachée de ce qu'elle compte, ou pas du tout quand elle est masquée.
+   Le nombre est donc écrit dans le libellé du lien lui-même, qui est la seule
+   chose qu'un lecteur d'écran annonce de façon fiable sur un bouton sans texte. */
+function motArticles(n){
+  return n === 0 ? "vide" : (n === 1 ? "1 article" : n + " articles");
+}
+function motFavoris(n){
+  return n === 0 ? "aucun favori" : (n === 1 ? "1 favori" : n + " favoris");
+}
 function compteurs(){
   var n = nbArticles(), nf = favoris().length;
   var cp = document.querySelectorAll("[data-compteur-panier]");
   for (var i=0;i<cp.length;i++){
     cp[i].textContent = n;
     cp[i].hidden = n === 0;
+    var lienP = cp[i].closest ? cp[i].closest("a") : null;
+    if (lienP) lienP.setAttribute("aria-label", "Mon panier, " + motArticles(n));
   }
   var cf = document.querySelectorAll("[data-compteur-favoris]");
   for (var j=0;j<cf.length;j++){
     cf[j].textContent = nf;
     cf[j].hidden = nf === 0;
+    var lienF = cf[j].closest ? cf[j].closest("a") : null;
+    if (lienF) lienF.setAttribute("aria-label", "Mes favoris, " + motFavoris(nf));
   }
 }
 

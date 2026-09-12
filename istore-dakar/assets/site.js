@@ -577,12 +577,96 @@ if (rm.addEventListener) rm.addEventListener("change", surRM);
 else if (rm.addListener) rm.addListener(surRM);
 
 /* ---------- démarrage ---------- */
+/* ---------- le menu hamburger ----------
+   Sous 900px la barre de liens disparaît : sans ce menu il n'y a plus aucun
+   moyen d'atteindre les pages catégorie depuis un téléphone. */
+function menu(){
+  var btn = document.getElementById("burger");
+  var pan = document.getElementById("menu");
+  if (!btn || !pan) return;
+  var ouvert = false, poseT = null;
+
+  function ouvre(){
+    if (ouvert) return; ouvert = true;
+    pan.hidden = false;
+    // Laisser une frame au navigateur pour enregistrer l'état de départ,
+    // sinon il passe directement à l'état final sans transition.
+    requestAnimationFrame(function(){ pan.classList.add("open") });
+    setTimeout(function(){ pan.classList.add("open") }, 30);   // filet si rAF dort
+    btn.setAttribute("aria-expanded", "true");
+    btn.setAttribute("aria-label", "Fermer le menu");
+    document.body.classList.add("menu-ouvert");
+    // Une fois la cascade jouée, on retire les retards : sinon chaque survol
+    // garderait le retard de sa position dans la liste, pour toujours.
+    clearTimeout(poseT);
+    poseT = setTimeout(function(){ pan.classList.add("pose") }, 700);
+    var prem = pan.querySelector("a");
+    if (prem) setTimeout(function(){ prem.focus() }, 340);
+  }
+  function ferme(rendreFocus){
+    if (!ouvert) return; ouvert = false;
+    pan.classList.remove("open", "pose");
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", "Ouvrir le menu");
+    document.body.classList.remove("menu-ouvert");
+    clearTimeout(poseT);
+    setTimeout(function(){ if (!ouvert) pan.hidden = true }, 340);
+    if (rendreFocus) btn.focus();
+  }
+
+  btn.addEventListener("click", function(){ ouvert ? ferme(true) : ouvre() });
+  pan.addEventListener("click", function(e){
+    if (e.target.closest("a")) ferme(false);      // un lien choisi referme
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && ouvert) ferme(true);
+  });
+  // Repasser en grand écran doit refermer, sinon le panneau reste par-dessus.
+  matchMedia("(min-width:901px)").addEventListener("change", function(e){
+    if (e.matches) ferme(false);
+  });
+}
+
+/* ---------- l'entrée des cartes produit ----------
+   Par lots et non carte par carte : une grille longue lancerait sinon cent
+   animations simultanées. ScrollTrigger.batch regroupe celles qui entrent
+   ensemble, ce qui donne naturellement une vague par rangée.
+   Seuls transform et opacity bougent. */
+function grille(){
+  if (!window.gsap || !window.ScrollTrigger) return;
+  var cartes = document.querySelectorAll(".card");
+  if (!cartes.length) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  var mmg = gsap.matchMedia();
+  mmg.add("(prefers-reduced-motion: no-preference)", function(){
+    gsap.set(cartes, { opacity: 0, y: 26 });
+    ScrollTrigger.batch(cartes, {
+      start: "top 88%",
+      once: true,                       // une carte déjà entrée ne rejoue pas
+      batchMax: 8,
+      onEnter: function(lot){
+        gsap.to(lot, {
+          opacity: 1, y: 0, duration: 0.82,
+          stagger: 0.07, ease: "power3.out", overwrite: true
+        });
+      }
+    });
+  });
+  // Mouvement réduit : l'état final, tout de suite, sans animation.
+  mmg.add("(prefers-reduced-motion: reduce)", function(){
+    gsap.set(cartes, { opacity: 1, y: 0, clearProps: "transform" });
+  });
+}
+
 function init(){
   film();
   liensWA();
   poussiere();
   pilule();
   entrees();
+  menu();
+  grille();
   faq();
   if (rm.matches) figer();
   // Deux déclencheurs : la première frame si la page est visible, sinon un
@@ -590,6 +674,9 @@ function init(){
   function pret(){ document.body.classList.add("ready") }
   requestAnimationFrame(pret);
   setTimeout(pret, 120);
+  // Une fois la cascade du heros statique jouee, on retire ses retards, sinon
+  // les boutons garderaient le leur a chaque survol.
+  setTimeout(function(){ document.body.classList.add("pose") }, 1700);
 }
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
 else init();

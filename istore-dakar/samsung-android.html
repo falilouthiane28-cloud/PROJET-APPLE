@@ -56,8 +56,27 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
         <span class="ctatxt">WhatsApp</span>
       </a>
+      <button class="burger" id="burger" type="button"
+              aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
+
+  <div class="menu" id="menu" hidden>
+    <nav class="menu-in" aria-label="Menu principal">
+      <a href="index.html">Accueil</a>
+      <a href="iphone-apple.html">iPhone</a>
+      <a href="samsung-android.html" class="on" aria-current="page">Samsung</a>
+      <a href="gaming.html">Gaming</a>
+      <a href="machines.html">Machines</a>
+      <a href="audio.html">Audio</a>
+      <a href="accessoires.html">Accessoires</a>
+      <a class="menu-cta wa" href="#">Commander sur WhatsApp</a>
+    </nav>
+  </div>
 </header>
 <main id="main" tabindex="-1">
 
@@ -79,7 +98,7 @@
   <div class="wrap">
     <div class="grid st">
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-s25-ultra"><img src="assets/produits/galaxy-s25-ultra.webp" alt="Galaxy S25 Ultra, 6,9 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-s25-ultra"><img src="assets/produits/galaxy-s25-ultra.webp" alt="Galaxy S25 Ultra, 6,9 pouces." width="736" height="1104" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=galaxy-s25-ultra">Galaxy S25 Ultra</a></h3>
           <p class="var">6,9 pouces</p>
@@ -87,7 +106,7 @@
           <a class="add" href="produit.html?id=galaxy-s25-ultra">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-s25-plus"><img src="assets/produits/galaxy-s25-plus.webp" alt="Galaxy S25+, 6,7 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-s25-plus"><img src="assets/produits/galaxy-s25-plus.webp" alt="Galaxy S25+, 6,7 pouces." width="600" height="876" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=galaxy-s25-plus">Galaxy S25+</a></h3>
           <p class="var">6,7 pouces</p>
@@ -95,7 +114,7 @@
           <a class="add" href="produit.html?id=galaxy-s25-plus">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-s25"><img src="assets/produits/galaxy-s25.webp" alt="Galaxy S25, 6,2 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-s25"><img src="assets/produits/galaxy-s25.webp" alt="Galaxy S25, 6,2 pouces." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=galaxy-s25">Galaxy S25</a></h3>
           <p class="var">6,2 pouces</p>
@@ -103,7 +122,7 @@
           <a class="add" href="produit.html?id=galaxy-s25">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-s24-ultra"><img src="assets/produits/galaxy-s24-ultra.webp" alt="Galaxy S24 Ultra, 6,8 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-s24-ultra"><img src="assets/produits/galaxy-s24-ultra.webp" alt="Galaxy S24 Ultra, 6,8 pouces." width="736" height="1236" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=galaxy-s24-ultra">Galaxy S24 Ultra</a></h3>
           <p class="var">6,8 pouces</p>
@@ -111,7 +130,7 @@
           <a class="add" href="produit.html?id=galaxy-s24-ultra">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-z-flip"><img src="assets/produits/galaxy-z-flip.webp" alt="Galaxy Z Flip, Pliant." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-z-flip"><img src="assets/produits/galaxy-z-flip.webp" alt="Galaxy Z Flip, Pliant." width="511" height="642" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=galaxy-z-flip">Galaxy Z Flip</a></h3>
           <p class="var">Pliant</p>
@@ -119,7 +138,7 @@
           <a class="add" href="produit.html?id=galaxy-z-flip">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-a56"><img src="assets/produits/galaxy-a56.webp" alt="Galaxy A56, 6,6 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-a56"><img src="assets/produits/galaxy-a56.webp" alt="Galaxy A56, 6,6 pouces." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=galaxy-a56">Galaxy A56</a></h3>
           <p class="var">6,6 pouces</p>
@@ -127,7 +146,7 @@
           <a class="add" href="produit.html?id=galaxy-a56">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-a36"><img src="assets/produits/galaxy-a36.webp" alt="Galaxy A36, 6,6 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-a36"><img src="assets/produits/galaxy-a36.webp" alt="Galaxy A36, 6,6 pouces." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=galaxy-a36">Galaxy A36</a></h3>
           <p class="var">6,6 pouces</p>
@@ -135,7 +154,7 @@
           <a class="add" href="produit.html?id=galaxy-a36">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-a16"><img src="assets/produits/galaxy-a16.webp" alt="Galaxy A16, 6,7 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-a16"><img src="assets/produits/galaxy-a16.webp" alt="Galaxy A16, 6,7 pouces." width="736" height="1308" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=galaxy-a16">Galaxy A16</a></h3>
           <p class="var">6,7 pouces</p>
@@ -143,7 +162,7 @@
           <a class="add" href="produit.html?id=galaxy-a16">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-tab-s10"><img src="assets/produits/galaxy-tab-s10.webp" alt="Galaxy Tab S10, 11 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-tab-s10"><img src="assets/produits/galaxy-tab-s10.webp" alt="Galaxy Tab S10, 11 pouces." width="735" height="546" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=galaxy-tab-s10">Galaxy Tab S10</a></h3>
           <p class="var">11 pouces</p>
@@ -151,7 +170,7 @@
           <a class="add" href="produit.html?id=galaxy-tab-s10">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=galaxy-watch"><img src="assets/produits/galaxy-watch.webp" alt="Galaxy Watch, 44 mm." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=galaxy-watch"><img src="assets/produits/galaxy-watch.webp" alt="Galaxy Watch, 44 mm." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">Livraison 24h</span>
           <h3><a href="produit.html?id=galaxy-watch">Galaxy Watch</a></h3>
           <p class="var">44 mm</p>

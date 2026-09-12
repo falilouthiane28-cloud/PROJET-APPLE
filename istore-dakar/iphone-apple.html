@@ -56,8 +56,27 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
         <span class="ctatxt">WhatsApp</span>
       </a>
+      <button class="burger" id="burger" type="button"
+              aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+        <span class="burger-l" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
+
+  <div class="menu" id="menu" hidden>
+    <nav class="menu-in" aria-label="Menu principal">
+      <a href="index.html">Accueil</a>
+      <a href="iphone-apple.html" class="on" aria-current="page">iPhone</a>
+      <a href="samsung-android.html">Samsung</a>
+      <a href="gaming.html">Gaming</a>
+      <a href="machines.html">Machines</a>
+      <a href="audio.html">Audio</a>
+      <a href="accessoires.html">Accessoires</a>
+      <a class="menu-cta wa" href="#">Commander sur WhatsApp</a>
+    </nav>
+  </div>
 </header>
 <main id="main" tabindex="-1">
 
@@ -79,7 +98,7 @@
   <div class="wrap">
     <div class="grid st">
         <article class="card">
-          <a class="pic" href="produit.html?id=iphone-16-pro"><img src="assets/produits/iphone-16-pro-finish-select-202409-6-3inch-blacktitanium.webp" alt="iPhone 16 Pro, 6,3 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=iphone-16-pro"><img src="assets/produits/iphone-16-pro-finish-select-202409-6-3inch-blacktitanium.webp" alt="iPhone 16 Pro, 6,3 pouces." width="248" height="302" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=iphone-16-pro">iPhone 16 Pro</a></h3>
           <p class="var">6,3 pouces</p>
@@ -87,7 +106,7 @@
           <a class="add" href="produit.html?id=iphone-16-pro">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=iphone-16-pro-max"><img src="assets/produits/iphone-16-pro-finish-select-202409-6-9inch-blacktitanium.webp" alt="iPhone 16 Pro Max, 6,9 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=iphone-16-pro-max"><img src="assets/produits/iphone-16-pro-finish-select-202409-6-9inch-blacktitanium.webp" alt="iPhone 16 Pro Max, 6,9 pouces." width="318" height="392" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=iphone-16-pro-max">iPhone 16 Pro Max</a></h3>
           <p class="var">6,9 pouces</p>
@@ -95,7 +114,7 @@
           <a class="add" href="produit.html?id=iphone-16-pro-max">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=iphone-16-plus"><img src="assets/produits/iphone-16-finish-select-202409-6-7inch-teal.webp" alt="iPhone 16 Plus, 6,7 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=iphone-16-plus"><img src="assets/produits/iphone-16-finish-select-202409-6-7inch-teal.webp" alt="iPhone 16 Plus, 6,7 pouces." width="268" height="328" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=iphone-16-plus">iPhone 16 Plus</a></h3>
           <p class="var">6,7 pouces</p>
@@ -103,7 +122,7 @@
           <a class="add" href="produit.html?id=iphone-16-plus">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=iphone-16"><img src="assets/produits/iphone-16.webp" alt="iPhone 16, 6,1 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=iphone-16"><img src="assets/produits/iphone-16.webp" alt="iPhone 16, 6,1 pouces." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=iphone-16">iPhone 16</a></h3>
           <p class="var">6,1 pouces</p>
@@ -111,7 +130,7 @@
           <a class="add" href="produit.html?id=iphone-16">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=iphone-15-pro-max"><img src="assets/produits/iphone-15-pro-max.webp" alt="iPhone 15 Pro Max, 6,7 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=iphone-15-pro-max"><img src="assets/produits/iphone-15-pro-max.webp" alt="iPhone 15 Pro Max, 6,7 pouces." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=iphone-15-pro-max">iPhone 15 Pro Max</a></h3>
           <p class="var">6,7 pouces</p>
@@ -119,7 +138,7 @@
           <a class="add" href="produit.html?id=iphone-15-pro-max">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=iphone-15"><img src="assets/produits/iphone-15.webp" alt="iPhone 15, 6,1 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=iphone-15"><img src="assets/produits/iphone-15.webp" alt="iPhone 15, 6,1 pouces." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=iphone-15">iPhone 15</a></h3>
           <p class="var">6,1 pouces</p>
@@ -127,7 +146,7 @@
           <a class="add" href="produit.html?id=iphone-15">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=apple-watch-series"><img src="assets/produits/watch-compare-s11-202509.webp" alt="Apple Watch Series, Aluminium." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=apple-watch-series"><img src="assets/produits/watch-compare-s11-202509.webp" alt="Apple Watch Series, Aluminium." width="413" height="408" loading="lazy" decoding="async"></a>
           <span class="badge">Nouveau</span>
           <h3><a href="produit.html?id=apple-watch-series">Apple Watch Series</a></h3>
           <p class="var">Aluminium</p>
@@ -135,7 +154,7 @@
           <a class="add" href="produit.html?id=apple-watch-series">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=apple-watch-ultra"><img src="assets/produits/watch-compare-ultra3-202509.webp" alt="Apple Watch Ultra, Titane." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=apple-watch-ultra"><img src="assets/produits/watch-compare-ultra3-202509.webp" alt="Apple Watch Ultra, Titane." width="484" height="518" loading="lazy" decoding="async"></a>
           <span class="badge">En stock</span>
           <h3><a href="produit.html?id=apple-watch-ultra">Apple Watch Ultra</a></h3>
           <p class="var">Titane</p>
@@ -143,7 +162,7 @@
           <a class="add" href="produit.html?id=apple-watch-ultra">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=apple-watch-se"><img src="assets/produits/watch-compare-se-202509.webp" alt="Apple Watch SE, Aluminium." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=apple-watch-se"><img src="assets/produits/watch-compare-se-202509.webp" alt="Apple Watch SE, Aluminium." width="427" height="508" loading="lazy" decoding="async"></a>
           <span class="badge">Livraison 24h</span>
           <h3><a href="produit.html?id=apple-watch-se">Apple Watch SE</a></h3>
           <p class="var">Aluminium</p>
@@ -151,7 +170,7 @@
           <a class="add" href="produit.html?id=apple-watch-se">Choisir</a>
         </article>
         <article class="card">
-          <a class="pic" href="produit.html?id=ipad-air"><img src="assets/produits/ipad-air.webp" alt="iPad Air, 11 pouces." loading="lazy"></a>
+          <a class="pic" href="produit.html?id=ipad-air"><img src="assets/produits/ipad-air.webp" alt="iPad Air, 11 pouces." width="736" height="736" loading="lazy" decoding="async"></a>
           <span class="badge">Sur commande</span>
           <h3><a href="produit.html?id=ipad-air">iPad Air</a></h3>
           <p class="var">11 pouces</p>
