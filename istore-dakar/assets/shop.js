@@ -215,6 +215,20 @@ function rendreProduit(){
   h.push('      <li>Livraison en 24h partout au Sénégal.</li>');
   h.push('      <li>Garantie 2 ans, portée par la boutique à Sacré-Cœur 3.</li>');
   h.push('    </ul>');
+
+  /* Les caractéristiques. Une liste de définitions et non un tableau : c'est
+     une suite d'étiquettes et de valeurs, pas des données croisées, et une dl
+     se lit correctement à la voix comme au doigt. */
+  if (prod.fiche && prod.fiche.length){
+    h.push('    <section class="specs" aria-labelledby="specs-t">');
+    h.push('      <h2 id="specs-t">Caractéristiques</h2>');
+    h.push('      <dl>');
+    for (var f = 0; f < prod.fiche.length; f++){
+      h.push('        <div><dt>' + prod.fiche[f][0] + '</dt><dd>' + prod.fiche[f][1] + '</dd></div>');
+    }
+    h.push('      </dl>');
+    h.push('    </section>');
+  }
   h.push('  </div>');
   h.push('</div>');
   hote.innerHTML = h.join("\n");

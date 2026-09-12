@@ -11,6 +11,9 @@ ST_IPHONE   = [("128 Go", 0), ("256 Go", 45000), ("512 Go", 120000), ("1 To", 21
 ST_IPHONE_P = [("256 Go", 0), ("512 Go", 105000), ("1 To", 195000)]
 ST_MAC      = [("256 Go", 0), ("512 Go", 95000), ("1 To", 190000)]
 ST_ANDROID  = [("128 Go", 0), ("256 Go", 40000), ("512 Go", 105000)]
+# Les modeles Ultra n'existent pas en 128 Go : les proposer, c'est vendre une
+# configuration que le client ne recevra jamais. Verifie chez Samsung.
+ST_ULTRA    = [("256 Go", 0), ("512 Go", 65000), ("1 To", 150000)]
 
 CATS = [
  ("iphone",  "iPhone & Apple",     "iphone-apple.html"),
@@ -54,37 +57,40 @@ PRODUITS = [
    ["Noir","Blanc","Sarcelle","Rose","Outremer"], ST_IPHONE,
    note="Le format qui tient dans la main, la puce de la génération."),
  P("iphone-15-pro-max","iPhone 15 Pro Max","iphone","6,7 pouces",390000,"Sur commande","iphone-15-pro-max.webp","phone",
-   ["Titane noir","Titane naturel","Titane bleu"], ST_IPHONE_P,
+   ["Titane noir","Titane blanc","Titane bleu","Titane naturel"], ST_IPHONE_P,
    note="La génération précédente, encore très à l'aise."),
  P("iphone-15","iPhone 15","iphone","6,1 pouces",290000,"Sur commande","iphone-15.webp","phone",
    ["Noir","Bleu","Vert","Jaune","Rose"], ST_IPHONE),
- P("apple-watch-series","Apple Watch Series","iphone","Aluminium",285000,"Nouveau",
-   "watch-compare-s11-202509.webp","watch",["Minuit","Lumière stellaire","Argent"],
-   [("41 mm",0),("45 mm",25000)], note="Suivi d'activité, appels, notifications au poignet.", top=True),
+ # Le fichier image du catalogue est l'asset Apple "watch-compare-s11" : c'est
+ # donc une Series 11, qui existe en 42 et 46 mm et non en 41 et 45. Les coloris
+ # aluminium sont ceux de cette generation.
+ P("apple-watch-series","Apple Watch Series 11","iphone","Aluminium",285000,"Nouveau",
+   "watch-compare-s11-202509.webp","watch",["Noir intense","Or rose","Argent","Gris sidéral"],
+   [("42 mm",0),("46 mm",25000)], note="Suivi d'activité, appels, notifications au poignet.", top=True),
  P("apple-watch-ultra","Apple Watch Ultra","iphone","Titane",550000,"En stock",
    "watch-compare-ultra3-202509.webp","watch",["Titane naturel","Titane noir"],
    [("49 mm",0)], note="Batterie longue durée, résistance extrême.", top=True),
  P("apple-watch-se","Apple Watch SE","iphone","Aluminium",165000,"Livraison 24h",
-   "watch-compare-se-202509.webp","watch",["Minuit","Lumière stellaire","Argent"],
+   "watch-compare-se-202509.webp","watch",["Minuit","Lumière stellaire"],
    [("40 mm",0),("44 mm",20000)]),
  P("ipad-air","iPad Air","iphone","11 pouces",390000,"Sur commande","ipad-air.webp","tablet",
    ["Gris sidéral","Bleu","Mauve","Lumière stellaire"],[("128 Go",0),("256 Go",55000),("512 Go",140000)]),
 
  # ---------------------------------------------------------------- Android
  P("galaxy-s25-ultra","Galaxy S25 Ultra","android","6,9 pouces",565000,"En stock","galaxy-s25-ultra.webp","phone",
-   ["Titane noir","Titane gris","Titane argent"], ST_ANDROID,
+   ["Titane noir","Titane gris","Titane blanc argenté","Titane bleu argenté"], ST_ULTRA,
    note="Stylet intégré, zoom optique, écran très lumineux.", top=True),
  P("galaxy-s25-plus","Galaxy S25+","android","6,7 pouces",465000,"En stock","galaxy-s25-plus.webp","phone",
-   ["Noir","Argent","Bleu marine"], ST_ANDROID),
+   ["Bleu marine","Bleu glacé","Menthe","Argent ombré"], ST_ANDROID),
  P("galaxy-s25","Galaxy S25","android","6,2 pouces",385000,"En stock","galaxy-s25.webp","phone",
-   ["Noir","Argent","Bleu marine","Menthe"], ST_ANDROID, top=True),
+   ["Bleu marine","Bleu glacé","Menthe","Argent ombré"], ST_ANDROID, top=True),
  P("galaxy-s24-ultra","Galaxy S24 Ultra","android","6,8 pouces",470000,"En stock","galaxy-s24-ultra.webp","phone",
-   ["Titane noir","Titane gris","Titane violet"], ST_ANDROID),
+   ["Titane noir","Titane gris","Titane violet"], ST_ULTRA),
  P("galaxy-z-flip","Galaxy Z Flip","android","Pliant",540000,"Sur commande","galaxy-z-flip.webp","phone",
    ["Noir","Bleu","Menthe"],[("256 Go",0),("512 Go",95000)],
    note="Se plie en deux, tient dans une poche de chemise."),
  P("galaxy-a56","Galaxy A56","android","6,6 pouces",165000,"En stock","galaxy-a56.webp","phone",
-   ["Noir","Vert","Rose","Gris"],[("128 Go",0),("256 Go",30000)], top=True),
+   ["Graphite","Gris clair","Olive","Rose"],[("128 Go",0),("256 Go",30000)], top=True),
  P("galaxy-a36","Galaxy A36","android","6,6 pouces",135000,"En stock","galaxy-a36.webp","phone",
    ["Noir","Blanc","Lavande"],[("128 Go",0),("256 Go",28000)]),
  P("galaxy-a16","Galaxy A16","android","6,7 pouces",95000,"En stock","galaxy-a16.webp","phone",
@@ -112,7 +118,7 @@ PRODUITS = [
  P("switch-oled","Nintendo Switch OLED","gaming","Écran 7 pouces",265000,"En stock",
    "switch-oled.webp","switch",["Blanc","Néon rouge et bleu"],[("64 Go",0)], top=True),
  P("switch-lite","Nintendo Switch Lite","gaming","Portable",165000,"En stock",
-   "switch-lite.webp","switch",["Bleu","Corail","Turquoise","Gris"],[("32 Go",0)],
+   "switch-lite.webp","switch",["Bleu","Corail","Turquoise","Gris","Jaune"],[("32 Go",0)],
    note="Uniquement portable, plus légère et moins chère."),
  P("joycon","Manettes Joy-Con","gaming","La paire · Switch 2",62000,"En stock",
    "joycon.webp","pad",

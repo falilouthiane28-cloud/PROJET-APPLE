@@ -4,6 +4,7 @@
 """
 import io, os, json
 import catalogue as C
+from fiches import FICHES
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "istore-dakar")
 
@@ -327,7 +328,8 @@ def js_produit(p):
     return dict(id=p["id"], nom=p["nom"], cat=p["cat"], sub=p["sub"], prix=p["prix"],
                 badge=p["badge"], img=p["img"], sil=p["sil"], couleurs=p["couleurs"],
                 stockages=[[a,b] for a,b in p["stockages"]], etat=p["etat"], note=p["note"],
-                images=p.get("images", {}))
+                images=p.get("images", {}),
+                fiche=[[l, v] for l, v in FICHES.get(p["id"], [])])
 
 
 INDEX_TPL = """<main id="main" tabindex="-1">

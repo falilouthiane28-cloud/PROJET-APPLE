@@ -34,7 +34,33 @@ window.CATALOGUE_INDEX = {
 "images": {
 "Titane noir": "iphone-16-pro-finish-select-202409-6-3inch-blacktitanium.webp",
 "Titane naturel": "iphone-16-pro-finish-select-202409-6-3inch-naturaltitanium.webp"
-}
+},
+"fiche": [
+[
+"Écran",
+"6,3 pouces Super Retina XDR OLED, 120 Hz"
+],
+[
+"Puce",
+"Apple A18 Pro"
+],
+[
+"Photo",
+"48 Mpx principal, 48 Mpx ultra grand-angle, 12 Mpx téléobjectif 5x"
+],
+[
+"Vidéo",
+"4K Dolby Vision jusqu'à 120 img/s"
+],
+[
+"Châssis",
+"Titane, résistance IP68"
+],
+[
+"Connectique",
+"USB-C"
+]
+]
 },
 "iphone-16-pro-max": {
 "id": "iphone-16-pro-max",
@@ -71,7 +97,33 @@ window.CATALOGUE_INDEX = {
 "Titane noir": "iphone-16-pro-finish-select-202409-6-9inch-blacktitanium.webp",
 "Titane naturel": "iphone-16-pro-finish-select-202409-6-9inch-naturaltitanium.webp",
 "Titane blanc": "iphone-16-pro-finish-select-202409-6-9inch-whitetitanium.webp"
-}
+},
+"fiche": [
+[
+"Écran",
+"6,9 pouces Super Retina XDR OLED, 120 Hz"
+],
+[
+"Puce",
+"Apple A18 Pro"
+],
+[
+"Photo",
+"48 Mpx principal, 48 Mpx ultra grand-angle, 12 Mpx téléobjectif 5x"
+],
+[
+"Vidéo",
+"4K Dolby Vision jusqu'à 120 img/s"
+],
+[
+"Châssis",
+"Titane, résistance IP68"
+],
+[
+"Connectique",
+"USB-C"
+]
+]
 },
 "iphone-16-plus": {
 "id": "iphone-16-plus",
@@ -109,7 +161,33 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Grand écran, prix contenu, autonomie confortable.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,7 pouces Super Retina XDR OLED"
+],
+[
+"Puce",
+"Apple A18"
+],
+[
+"Photo",
+"48 Mpx principal, 12 Mpx ultra grand-angle"
+],
+[
+"Commandes",
+"Bouton Contrôle appareil photo, bouton Action"
+],
+[
+"Châssis",
+"Aluminium, résistance IP68"
+],
+[
+"Connectique",
+"USB-C"
+]
+]
 },
 "iphone-16": {
 "id": "iphone-16",
@@ -147,7 +225,33 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Le format qui tient dans la main, la puce de la génération.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,1 pouces Super Retina XDR OLED"
+],
+[
+"Puce",
+"Apple A18"
+],
+[
+"Photo",
+"48 Mpx principal, 12 Mpx ultra grand-angle"
+],
+[
+"Commandes",
+"Bouton Contrôle appareil photo, bouton Action"
+],
+[
+"Châssis",
+"Aluminium, résistance IP68"
+],
+[
+"Connectique",
+"USB-C"
+]
+]
 },
 "iphone-15-pro-max": {
 "id": "iphone-15-pro-max",
@@ -160,8 +264,9 @@ window.CATALOGUE_INDEX = {
 "sil": "phone",
 "couleurs": [
 "Titane noir",
-"Titane naturel",
-"Titane bleu"
+"Titane blanc",
+"Titane bleu",
+"Titane naturel"
 ],
 "stockages": [
 [
@@ -179,7 +284,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "La génération précédente, encore très à l'aise.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,7 pouces Super Retina XDR OLED, 120 Hz"
+],
+[
+"Puce",
+"Apple A17 Pro"
+],
+[
+"Photo",
+"48 Mpx principal, 12 Mpx ultra grand-angle, 12 Mpx téléobjectif 5x"
+],
+[
+"Châssis",
+"Titane, résistance IP68"
+],
+[
+"Connectique",
+"USB-C"
+]
+]
 },
 "iphone-15": {
 "id": "iphone-15",
@@ -217,11 +344,33 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,1 pouces Super Retina XDR OLED, Dynamic Island"
+],
+[
+"Puce",
+"Apple A16 Bionic"
+],
+[
+"Photo",
+"48 Mpx principal, 12 Mpx ultra grand-angle"
+],
+[
+"Châssis",
+"Aluminium, résistance IP68"
+],
+[
+"Connectique",
+"USB-C"
+]
+]
 },
 "apple-watch-series": {
 "id": "apple-watch-series",
-"nom": "Apple Watch Series",
+"nom": "Apple Watch Series 11",
 "cat": "iphone",
 "sub": "Aluminium",
 "prix": 285000,
@@ -229,23 +378,50 @@ window.CATALOGUE_INDEX = {
 "img": "watch-compare-s11-202509.webp",
 "sil": "watch",
 "couleurs": [
-"Minuit",
-"Lumière stellaire",
-"Argent"
+"Noir intense",
+"Or rose",
+"Argent",
+"Gris sidéral"
 ],
 "stockages": [
 [
-"41 mm",
+"42 mm",
 0
 ],
 [
-"45 mm",
+"46 mm",
 25000
 ]
 ],
 "etat": "Neuf scellé",
 "note": "Suivi d'activité, appels, notifications au poignet.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Modèle",
+"Apple Watch Series 11, boîtier aluminium"
+],
+[
+"Écran",
+"Retina toujours active, 2 000 nits en pointe"
+],
+[
+"Tailles",
+"42 mm ou 46 mm"
+],
+[
+"Autonomie",
+"Jusqu'à 24 heures, 38 heures en mode économie d'énergie"
+],
+[
+"Résistance",
+"Étanche à 50 m, verre Ion-X deux fois plus résistant aux rayures"
+],
+[
+"Santé",
+"Fréquence cardiaque, oxygène sanguin, ECG, score de sommeil"
+]
+]
 },
 "apple-watch-ultra": {
 "id": "apple-watch-ultra",
@@ -268,7 +444,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Batterie longue durée, résistance extrême.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Boîtier",
+"49 mm, titane"
+],
+[
+"Écran",
+"Retina toujours active, 3000 nits"
+],
+[
+"Autonomie",
+"Jusqu'à 36 heures, 72 heures en mode économie"
+],
+[
+"Étanchéité",
+"100 mètres, norme plongée EN13319"
+],
+[
+"Spécifique",
+"Bouton Action, sirène 86 décibels, double GPS"
+]
+]
 },
 "apple-watch-se": {
 "id": "apple-watch-se",
@@ -281,8 +479,7 @@ window.CATALOGUE_INDEX = {
 "sil": "watch",
 "couleurs": [
 "Minuit",
-"Lumière stellaire",
-"Argent"
+"Lumière stellaire"
 ],
 "stockages": [
 [
@@ -296,7 +493,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"Retina LTPO"
+],
+[
+"Autonomie",
+"Jusqu'à 18 heures"
+],
+[
+"Santé",
+"Fréquence cardiaque, détection de chute et d'accident"
+],
+[
+"Étanchéité",
+"50 mètres"
+],
+[
+"Boîtier",
+"Aluminium"
+]
+]
 },
 "ipad-air": {
 "id": "ipad-air",
@@ -329,7 +548,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"Liquid Retina 11 pouces"
+],
+[
+"Puce",
+"Apple M3"
+],
+[
+"Compatibilité",
+"Apple Pencil Pro, Magic Keyboard"
+],
+[
+"Photo",
+"12 Mpx arrière, 12 Mpx avant ultra grand-angle"
+],
+[
+"Connectique",
+"USB-C, Touch ID"
+]
+]
 },
 "galaxy-s25-ultra": {
 "id": "galaxy-s25-ultra",
@@ -343,25 +584,52 @@ window.CATALOGUE_INDEX = {
 "couleurs": [
 "Titane noir",
 "Titane gris",
-"Titane argent"
+"Titane blanc argenté",
+"Titane bleu argenté"
 ],
 "stockages": [
 [
-"128 Go",
+"256 Go",
 0
 ],
 [
-"256 Go",
-40000
+"512 Go",
+65000
 ],
 [
-"512 Go",
-105000
+"1 To",
+150000
 ]
 ],
 "etat": "Neuf scellé",
 "note": "Stylet intégré, zoom optique, écran très lumineux.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,9 pouces QHD+ Dynamic AMOLED 2X, 120 Hz"
+],
+[
+"Processeur",
+"Snapdragon 8 Elite pour Galaxy"
+],
+[
+"Mémoire vive",
+"12 Go"
+],
+[
+"Photo",
+"200 Mpx principal, 50 Mpx ultra grand-angle, 50 Mpx 5x, 10 Mpx 3x"
+],
+[
+"Batterie",
+"5000 mAh"
+],
+[
+"Spécifique",
+"S Pen inclus, châssis titane"
+]
+]
 },
 "galaxy-s25-plus": {
 "id": "galaxy-s25-plus",
@@ -373,9 +641,10 @@ window.CATALOGUE_INDEX = {
 "img": "galaxy-s25-plus.webp",
 "sil": "phone",
 "couleurs": [
-"Noir",
-"Argent",
-"Bleu marine"
+"Bleu marine",
+"Bleu glacé",
+"Menthe",
+"Argent ombré"
 ],
 "stockages": [
 [
@@ -393,7 +662,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,7 pouces QHD+ Dynamic AMOLED 2X, 120 Hz"
+],
+[
+"Processeur",
+"Snapdragon 8 Elite pour Galaxy"
+],
+[
+"Mémoire vive",
+"12 Go"
+],
+[
+"Photo",
+"50 Mpx principal, 12 Mpx ultra grand-angle, 10 Mpx téléobjectif 3x"
+],
+[
+"Batterie",
+"4900 mAh"
+]
+]
 },
 "galaxy-s25": {
 "id": "galaxy-s25",
@@ -405,10 +696,10 @@ window.CATALOGUE_INDEX = {
 "img": "galaxy-s25.webp",
 "sil": "phone",
 "couleurs": [
-"Noir",
-"Argent",
 "Bleu marine",
-"Menthe"
+"Bleu glacé",
+"Menthe",
+"Argent ombré"
 ],
 "stockages": [
 [
@@ -426,7 +717,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,2 pouces FHD+ Dynamic AMOLED 2X, 120 Hz"
+],
+[
+"Processeur",
+"Snapdragon 8 Elite pour Galaxy"
+],
+[
+"Mémoire vive",
+"12 Go"
+],
+[
+"Photo",
+"50 Mpx principal, 12 Mpx ultra grand-angle, 10 Mpx téléobjectif 3x"
+],
+[
+"Batterie",
+"4000 mAh"
+]
+]
 },
 "galaxy-s24-ultra": {
 "id": "galaxy-s24-ultra",
@@ -444,21 +757,47 @@ window.CATALOGUE_INDEX = {
 ],
 "stockages": [
 [
-"128 Go",
+"256 Go",
 0
 ],
 [
-"256 Go",
-40000
+"512 Go",
+65000
 ],
 [
-"512 Go",
-105000
+"1 To",
+150000
 ]
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,8 pouces QHD+ Dynamic AMOLED 2X, 120 Hz"
+],
+[
+"Processeur",
+"Snapdragon 8 Gen 3 pour Galaxy"
+],
+[
+"Mémoire vive",
+"12 Go"
+],
+[
+"Photo",
+"200 Mpx principal, 12 Mpx ultra grand-angle, 50 Mpx 5x, 10 Mpx 3x"
+],
+[
+"Batterie",
+"5000 mAh"
+],
+[
+"Spécifique",
+"S Pen inclus, châssis titane"
+]
+]
 },
 "galaxy-z-flip": {
 "id": "galaxy-z-flip",
@@ -486,7 +825,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Se plie en deux, tient dans une poche de chemise.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Format",
+"Pliant à clapet, se referme sur lui-même"
+],
+[
+"Écrans",
+"Un grand écran intérieur pliable, un écran de couverture à l'extérieur"
+],
+[
+"Système",
+"Android avec l'interface Samsung One UI"
+],
+[
+"Réseau",
+"5G"
+],
+[
+"Charge",
+"USB-C et charge sans fil"
+]
+]
 },
 "galaxy-a56": {
 "id": "galaxy-a56",
@@ -498,10 +859,10 @@ window.CATALOGUE_INDEX = {
 "img": "galaxy-a56.webp",
 "sil": "phone",
 "couleurs": [
-"Noir",
-"Vert",
-"Rose",
-"Gris"
+"Graphite",
+"Gris clair",
+"Olive",
+"Rose"
 ],
 "stockages": [
 [
@@ -515,7 +876,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,7 pouces Super AMOLED, 120 Hz"
+],
+[
+"Photo",
+"50 Mpx principal, 12 Mpx ultra grand-angle, 5 Mpx macro"
+],
+[
+"Batterie",
+"5000 mAh, charge 45 W"
+],
+[
+"Résistance",
+"IP67"
+]
+]
 },
 "galaxy-a36": {
 "id": "galaxy-a36",
@@ -543,7 +922,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,7 pouces Super AMOLED, 120 Hz"
+],
+[
+"Photo",
+"50 Mpx principal, 8 Mpx ultra grand-angle, 5 Mpx macro"
+],
+[
+"Batterie",
+"5000 mAh, charge 45 W"
+],
+[
+"Résistance",
+"IP67"
+]
+]
 },
 "galaxy-a16": {
 "id": "galaxy-a16",
@@ -571,7 +968,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"6,7 pouces Super AMOLED, 90 Hz"
+],
+[
+"Photo",
+"50 Mpx principal, 5 Mpx ultra grand-angle, 2 Mpx macro"
+],
+[
+"Batterie",
+"5000 mAh"
+],
+[
+"Suivi",
+"Six ans de mises à jour Android annoncées"
+]
+]
 },
 "galaxy-tab-s10": {
 "id": "galaxy-tab-s10",
@@ -598,7 +1013,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Système",
+"Android avec l'interface Samsung One UI"
+],
+[
+"Stylet",
+"Compatible S Pen"
+],
+[
+"Réseau",
+"Wi-Fi"
+],
+[
+"Connectique",
+"USB-C"
+],
+[
+"Usage",
+"Lecture, cours, vidéo, prise de notes au stylet"
+]
+]
 },
 "galaxy-watch": {
 "id": "galaxy-watch",
@@ -625,7 +1062,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Taille",
+"Boîtier 44 mm"
+],
+[
+"Système",
+"Wear OS, compatible téléphones Android"
+],
+[
+"Connectivité",
+"Bluetooth, ou LTE selon la version choisie"
+],
+[
+"Santé",
+"Fréquence cardiaque, suivi du sommeil, suivi d'activité"
+],
+[
+"Charge",
+"Sans fil, sur socle magnétique"
+]
+]
 },
 "ps5-slim": {
 "id": "ps5-slim",
@@ -647,7 +1106,33 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "La version avec lecteur, pour les jeux en boîte.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Processeur",
+"AMD Zen 2, 8 cœurs"
+],
+[
+"Graphismes",
+"AMD RDNA 2, 10,28 teraflops"
+],
+[
+"Mémoire",
+"16 Go GDDR6"
+],
+[
+"Stockage",
+"SSD 1 To"
+],
+[
+"Vidéo",
+"4K jusqu'à 120 Hz, 8K compatible"
+],
+[
+"Lecteur",
+"Blu-ray Ultra HD inclus"
+]
+]
 },
 "ps5-digital": {
 "id": "ps5-digital",
@@ -669,7 +1154,33 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Tout en téléchargement, moins chère à l'achat.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Processeur",
+"AMD Zen 2, 8 cœurs"
+],
+[
+"Graphismes",
+"AMD RDNA 2, 10,28 teraflops"
+],
+[
+"Mémoire",
+"16 Go GDDR6"
+],
+[
+"Stockage",
+"SSD 1 To"
+],
+[
+"Vidéo",
+"4K jusqu'à 120 Hz, 8K compatible"
+],
+[
+"Lecteur",
+"Aucun, jeux en téléchargement uniquement"
+]
+]
 },
 "ps5-pro": {
 "id": "ps5-pro",
@@ -691,7 +1202,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Pour ceux qui veulent le maximum d'images par seconde.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Graphismes",
+"16,7 teraflops, 67 % d'unités de calcul en plus"
+],
+[
+"Stockage",
+"SSD 2 To"
+],
+[
+"Mise à l'échelle",
+"PlayStation Spectral Super Résolution"
+],
+[
+"Rendu",
+"Ray tracing accéléré"
+],
+[
+"Lecteur",
+"Aucun, lecteur disque vendu séparément"
+]
+]
 },
 "dualsense": {
 "id": "dualsense",
@@ -712,7 +1245,29 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Retour haptique",
+"Moteurs à bobine acoustique"
+],
+[
+"Gâchettes",
+"Adaptatives, résistance variable"
+],
+[
+"Audio",
+"Micro intégré, prise casque 3,5 mm"
+],
+[
+"Capteurs",
+"Gyroscope et accéléromètre six axes"
+],
+[
+"Charge",
+"USB-C"
+]
+]
 },
 "dualsense-edge": {
 "id": "dualsense-edge",
@@ -729,7 +1284,29 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": "Palettes arrière, sticks remplaçables, profils personnalisés.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Personnalisation",
+"Modules de joysticks remplaçables"
+],
+[
+"Commandes",
+"Palettes arrière interchangeables"
+],
+[
+"Profils",
+"Profils multiples mémorisés dans la manette"
+],
+[
+"Gâchettes",
+"Course réglable sur trois positions"
+],
+[
+"Inclus",
+"Étui de transport et câble tressé"
+]
+]
 },
 "switch-oled": {
 "id": "switch-oled",
@@ -752,7 +1329,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"7 pouces OLED, 1280 x 720"
+],
+[
+"Stockage",
+"64 Go, extensible par microSD"
+],
+[
+"Modes",
+"Portable, sur table, sur télévision"
+],
+[
+"Télévision",
+"1920 x 1080 via le socle"
+],
+[
+"Spécifique",
+"Socle avec port Ethernet, béquille large"
+]
+]
 },
 "switch-lite": {
 "id": "switch-lite",
@@ -767,7 +1366,8 @@ window.CATALOGUE_INDEX = {
 "Bleu",
 "Corail",
 "Turquoise",
-"Gris"
+"Gris",
+"Jaune"
 ],
 "stockages": [
 [
@@ -777,7 +1377,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Uniquement portable, plus légère et moins chère.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"5,5 pouces LCD, 1280 x 720"
+],
+[
+"Stockage",
+"32 Go, extensible par microSD"
+],
+[
+"Mode",
+"Portable uniquement, manettes intégrées"
+],
+[
+"Poids",
+"275 grammes"
+]
+]
 },
 "joycon": {
 "id": "joycon",
@@ -794,7 +1412,33 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": "Pack de deux manettes Joy-Con, dans leur boîte d'origine.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Compatibilité",
+"Nintendo Switch 2"
+],
+[
+"Contenu",
+"Deux manettes, une gauche et une droite"
+],
+[
+"Fixation",
+"Aimantée sur la console, bouton de libération à l'arrière"
+],
+[
+"Mode souris",
+"Capteur optique sur la tranche, utilisable sur une table"
+],
+[
+"Vibrations",
+"HD Rumble 2"
+],
+[
+"Autres",
+"Gyroscope, lecteur NFC pour les amiibo"
+]
+]
 },
 "switch-pro-controller": {
 "id": "switch-pro-controller",
@@ -811,7 +1455,29 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Vibrations",
+"HD Rumble"
+],
+[
+"Capteurs",
+"Gyroscope et accéléromètre"
+],
+[
+"Autonomie",
+"Environ 40 heures"
+],
+[
+"Spécifique",
+"Lecteur amiibo intégré"
+],
+[
+"Charge",
+"USB-C"
+]
+]
 },
 "xbox-series-x": {
 "id": "xbox-series-x",
@@ -833,7 +1499,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Processeur",
+"AMD Zen 2, 8 cœurs à 3,8 GHz"
+],
+[
+"Graphismes",
+"12 teraflops, RDNA 2"
+],
+[
+"Mémoire",
+"16 Go GDDR6"
+],
+[
+"Stockage",
+"SSD NVMe 1 To"
+],
+[
+"Vidéo",
+"4K jusqu'à 120 img/s"
+]
+]
 },
 "pulse-3d": {
 "id": "pulse-3d",
@@ -850,7 +1538,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": "Le casque officiel PS5, son 3D, micro intégré.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Audio",
+"Son 3D compatible PlayStation 5"
+],
+[
+"Micro",
+"Double micro à réduction de bruit"
+],
+[
+"Autonomie",
+"Environ 12 heures"
+],
+[
+"Connexion",
+"Adaptateur USB sans fil, prise 3,5 mm"
+]
+]
 },
 "station-charge": {
 "id": "station-charge",
@@ -867,7 +1573,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Compatibilité",
+"Manettes DualSense, PlayStation 5"
+],
+[
+"Capacité",
+"Deux manettes en même temps"
+],
+[
+"Usage",
+"Recharge sans allumer la console"
+],
+[
+"Pose",
+"Manettes posées sur leurs contacts, sans câble à brancher"
+]
+]
 },
 "macbook-air-13": {
 "id": "macbook-air-13",
@@ -900,7 +1624,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Silencieux, léger, une journée entière d'autonomie.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"13,6 pouces Liquid Retina"
+],
+[
+"Puce",
+"Apple série M, génération à préciser sur WhatsApp"
+],
+[
+"Connectique",
+"Deux Thunderbolt, MagSafe 3, prise casque"
+],
+[
+"Refroidissement",
+"Sans ventilateur, donc silencieux"
+]
+]
 },
 "macbook-air-15": {
 "id": "macbook-air-15",
@@ -932,7 +1674,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"15,3 pouces Liquid Retina"
+],
+[
+"Puce",
+"Apple série M, génération à préciser sur WhatsApp"
+],
+[
+"Audio",
+"Six haut-parleurs"
+],
+[
+"Refroidissement",
+"Sans ventilateur, donc silencieux"
+]
+]
 },
 "macbook-pro-14": {
 "id": "macbook-pro-14",
@@ -964,7 +1724,21 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Pour le montage, la 3D, le développement.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"14,2 pouces Liquid Retina XDR, 120 Hz"
+],
+[
+"Puce",
+"Apple série M Pro, génération à préciser sur WhatsApp"
+],
+[
+"Connectique",
+"Trois Thunderbolt, HDMI, lecteur SDXC, MagSafe 3"
+]
+]
 },
 "macbook-pro-16": {
 "id": "macbook-pro-16",
@@ -995,7 +1769,21 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"16,2 pouces Liquid Retina XDR, 120 Hz"
+],
+[
+"Puce",
+"Apple série M Pro ou M Max, génération à préciser sur WhatsApp"
+],
+[
+"Connectique",
+"Trois Thunderbolt, HDMI, lecteur SDXC, MagSafe 3"
+]
+]
 },
 "pc-gamer-15": {
 "id": "pc-gamer-15",
@@ -1021,7 +1809,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "15,6 pouces 144 Hz, Core i5, clavier rétroéclairé.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"15,6 pouces Full HD, 144 Hz"
+],
+[
+"Processeur",
+"Intel Core i5-13420H"
+],
+[
+"Graphismes",
+"NVIDIA GeForce RTX 4050"
+],
+[
+"Mémoire vive",
+"16 Go"
+]
+]
 },
 "pc-msi-cyborg-4060": {
 "id": "pc-msi-cyborg-4060",
@@ -1047,7 +1853,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "La même machine, avec la carte au-dessus.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"15,6 pouces Full HD, 144 Hz"
+],
+[
+"Processeur",
+"Intel Core i7"
+],
+[
+"Graphismes",
+"NVIDIA GeForce RTX 4060"
+],
+[
+"Mémoire vive",
+"16 Go"
+]
+]
 },
 "pc-gamer-17": {
 "id": "pc-gamer-17",
@@ -1073,7 +1897,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "15,6 pouces, clavier RGB par touche, refroidissement renforcé.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"15,6 pouces, 165 Hz"
+],
+[
+"Graphismes",
+"NVIDIA GeForce RTX"
+],
+[
+"Mémoire vive",
+"32 Go"
+],
+[
+"Clavier",
+"Rétroéclairage RGB par touche"
+],
+[
+"Refroidissement",
+"Système renforcé Legion ColdFront"
+]
+]
 },
 "tour-gamer": {
 "id": "tour-gamer",
@@ -1100,7 +1946,29 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Graphismes",
+"NVIDIA GeForce RTX 5070"
+],
+[
+"Processeur",
+"Intel Core Ultra 7"
+],
+[
+"Mémoire vive",
+"32 Go"
+],
+[
+"Stockage",
+"SSD 1 To"
+],
+[
+"Boîtier",
+"Façade et latéral en verre trempé"
+]
+]
 },
 "ecran-gamer-27": {
 "id": "ecran-gamer-27",
@@ -1117,7 +1985,29 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": "WQHD 2560x1440, dalle Rapid IPS, 0,5 ms, G-SYNC.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Dalle",
+"27 pouces Rapid IPS"
+],
+[
+"Définition",
+"2560 x 1440, format 16:9"
+],
+[
+"Fréquence",
+"360 Hz"
+],
+[
+"Connectique",
+"Deux HDMI 2.1, DisplayPort"
+],
+[
+"Spécifique",
+"HDR, compatible adaptive sync"
+]
+]
 },
 "clavier-mecanique": {
 "id": "clavier-mecanique",
@@ -1134,7 +2024,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": "Format compact 61 touches, filaire, rétroéclairage RGB.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Format",
+"60 pour cent, 61 touches"
+],
+[
+"Disposition",
+"AZERTY"
+],
+[
+"Éclairage",
+"Rétroéclairage RGB"
+],
+[
+"Connexion",
+"Filaire USB"
+]
+]
 },
 "souris-gamer": {
 "id": "souris-gamer",
@@ -1151,7 +2059,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": "Sans fil, capteur haute précision, éclairage réglable.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Capteur",
+"Razer Focus Pro 30 000 PPP"
+],
+[
+"Connexion",
+"Sans fil HyperSpeed, Bluetooth ou filaire"
+],
+[
+"Boutons",
+"Dix boutons programmables"
+],
+[
+"Éclairage",
+"Razer Chroma RGB"
+]
+]
 },
 "ipad-pro": {
 "id": "ipad-pro",
@@ -1182,7 +2108,25 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": "Puce M4, écran Ultra Retina XDR, compatible Apple Pencil.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Écran",
+"Ultra Retina XDR OLED, 120 Hz"
+],
+[
+"Puce",
+"Apple M4"
+],
+[
+"Compatibilité",
+"Apple Pencil Pro, Magic Keyboard"
+],
+[
+"Connectique",
+"Thunderbolt / USB 4"
+]
+]
 },
 "airpods-max": {
 "id": "airpods-max",
@@ -1203,7 +2147,29 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": "Casque fermé, son large, finition métal.",
-"images": {}
+"images": {},
+"fiche": [
+[
+"Réduction de bruit",
+"Active, avec mode Transparence"
+],
+[
+"Audio",
+"Audio spatial avec suivi dynamique de la tête"
+],
+[
+"Autonomie",
+"Jusqu'à 20 heures"
+],
+[
+"Charge",
+"USB-C"
+],
+[
+"Matériaux",
+"Arceau en acier inoxydable, coussinets en mousse"
+]
+]
 },
 "airpods-pro": {
 "id": "airpods-pro",
@@ -1220,7 +2186,29 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Réduction de bruit",
+"Active, avec mode Transparence"
+],
+[
+"Audio",
+"Audio spatial personnalisé"
+],
+[
+"Commandes",
+"Contrôle du volume par glissement sur la tige"
+],
+[
+"Résistance",
+"IP54, écouteurs et boîtier"
+],
+[
+"Charge",
+"USB-C, compatible MagSafe"
+]
+]
 },
 "airpods": {
 "id": "airpods",
@@ -1237,7 +2225,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Audio",
+"Audio spatial personnalisé"
+],
+[
+"Détection",
+"Pause automatique au retrait"
+],
+[
+"Résistance",
+"IP54, écouteurs et boîtier"
+],
+[
+"Charge",
+"USB-C"
+]
+]
 },
 "galaxy-buds": {
 "id": "galaxy-buds",
@@ -1256,7 +2262,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Réduction de bruit",
+"Active, avec mode son ambiant"
+],
+[
+"Audio",
+"Son surround 360 degrés"
+],
+[
+"Commandes",
+"Surface tactile"
+],
+[
+"Charge",
+"USB-C, compatible charge sans fil"
+]
+]
 },
 "casque-gamer": {
 "id": "casque-gamer",
@@ -1274,7 +2298,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Connexion",
+"Filaire, prise 3,5 mm"
+],
+[
+"Port",
+"Circum-auriculaire"
+],
+[
+"Micro",
+"Intégré"
+],
+[
+"Compatibilité",
+"Ordinateur et consoles avec prise casque"
+]
+]
 },
 "casque-bluetooth": {
 "id": "casque-bluetooth",
@@ -1293,7 +2335,29 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Réduction de bruit",
+"Active"
+],
+[
+"Autonomie",
+"Environ 30 heures"
+],
+[
+"Port",
+"Circum-auriculaire, coussinets protéines"
+],
+[
+"Connexion",
+"Bluetooth, avec entrée filaire de secours"
+],
+[
+"Micro",
+"Intégré, pour les appels"
+]
+]
 },
 "enceinte-portable": {
 "id": "enceinte-portable",
@@ -1312,7 +2376,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Puissance",
+"20 W"
+],
+[
+"Autonomie",
+"Environ 20 heures"
+],
+[
+"Connexion",
+"Bluetooth"
+],
+[
+"Spécifique",
+"Éclairage LED, écran d'affichage"
+]
+]
 },
 "enceinte-salon": {
 "id": "enceinte-salon",
@@ -1330,7 +2412,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Connexion",
+"Bluetooth, appairage de deux enceintes"
+],
+[
+"Autonomie",
+"Environ 15 heures"
+],
+[
+"Spécifique",
+"Éclairage d'ambiance"
+],
+[
+"Usage",
+"Sonorisation de pièce ou d'extérieur"
+]
+]
 },
 "chargeur-magsafe": {
 "id": "chargeur-magsafe",
@@ -1347,7 +2447,21 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Type",
+"Charge sans fil magnétique"
+],
+[
+"Compatibilité",
+"iPhone équipés de MagSafe"
+],
+[
+"Connectique",
+"Câble USB-C attache"
+]
+]
 },
 "chargeur-20w": {
 "id": "chargeur-20w",
@@ -1364,7 +2478,21 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Puissance",
+"20 W"
+],
+[
+"Connectique",
+"Sortie USB-C"
+],
+[
+"Charge rapide",
+"Compatible Power Delivery"
+]
+]
 },
 "chargeur-65w": {
 "id": "chargeur-65w",
@@ -1382,7 +2510,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Puissance",
+"65 W au total"
+],
+[
+"Ports",
+"Trois, dont USB-C"
+],
+[
+"Technologie",
+"GaN, plus compact à puissance égale"
+],
+[
+"Charge rapide",
+"Power Delivery et PPS"
+]
+]
 },
 "cable-usbc": {
 "id": "cable-usbc",
@@ -1409,7 +2555,21 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Type",
+"USB-C vers USB-C"
+],
+[
+"Puissance",
+"Jusqu'à 240 W"
+],
+[
+"Gaine",
+"Tressée"
+]
+]
 },
 "cable-lightning": {
 "id": "cable-lightning",
@@ -1435,7 +2595,21 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Type",
+"USB-C vers Lightning"
+],
+[
+"Compatibilité",
+"iPhone 14 et antérieurs, iPad et AirPods à port Lightning"
+],
+[
+"Charge rapide",
+"Compatible Power Delivery"
+]
+]
 },
 "batterie-externe": {
 "id": "batterie-externe",
@@ -1462,7 +2636,21 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Connectique",
+"Câble USB-C intégré"
+],
+[
+"Sorties",
+"USB-C et USB-A"
+],
+[
+"Affichage",
+"Niveau de charge en pourcentage"
+]
+]
 },
 "coque-iphone": {
 "id": "coque-iphone",
@@ -1483,7 +2671,21 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Matière",
+"Silicone ou polymère rigide selon le coloris"
+],
+[
+"Protection",
+"Bords surélevés autour de l'écran et des objectifs"
+],
+[
+"Compatibilité",
+"À préciser sur WhatsApp selon le modèle d'iPhone"
+]
+]
 },
 "verre-trempe": {
 "id": "verre-trempe",
@@ -1500,7 +2702,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Dureté",
+"9H"
+],
+[
+"Épaisseur",
+"0,33 mm"
+],
+[
+"Traitement",
+"Anti-traces, pose sans bulles"
+],
+[
+"Compatibilité",
+"À préciser sur WhatsApp selon le modèle"
+]
+]
 },
 "support-voiture": {
 "id": "support-voiture",
@@ -1517,7 +2737,25 @@ window.CATALOGUE_INDEX = {
 "stockages": [],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Fixation",
+"Grille d'aération"
+],
+[
+"Charge",
+"Sans fil"
+],
+[
+"Maintien",
+"Bras motorisés, ouverture automatique"
+],
+[
+"Orientation",
+"Portrait ou paysage"
+]
+]
 },
 "carte-memoire": {
 "id": "carte-memoire",
@@ -1547,7 +2785,21 @@ window.CATALOGUE_INDEX = {
 ],
 "etat": "Neuf scellé",
 "note": null,
-"images": {}
+"images": {},
+"fiche": [
+[
+"Format",
+"microSD"
+],
+[
+"Classe",
+"Classe 10"
+],
+[
+"Usage",
+"Consoles portables, appareils photo, téléphones à port microSD"
+]
+]
 }
 };
 window.CATS_INDEX = {"iphone": {"nom": "iPhone & Apple", "url": "iphone-apple.html"}, "android": {"nom": "Samsung & Android", "url": "samsung-android.html"}, "gaming": {"nom": "Gaming", "url": "gaming.html"}, "machines": {"nom": "Machines", "url": "machines.html"}, "audio": {"nom": "Audio", "url": "audio.html"}, "acc": {"nom": "Accessoires", "url": "accessoires.html"}};
