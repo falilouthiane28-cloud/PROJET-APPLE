@@ -33,9 +33,85 @@
      tourne à environ 60% de son entrée : un élément qui part aussi lentement
      qu'il est arrivé paraît traîner. */
   --t-micro:180ms; --t-ui:320ms; --t-reveal:820ms;
+  /* La surface qui porte une photo de produit. Elle reste CLAIRE dans les deux
+     themes : les produits vendus ici sont presque tous noirs, et leurs images
+     ont un fond transparent. Sur un panneau sombre ils disparaitraient. Elle se
+     lit comme une vitrine eclairee, ce qui est une figure courante sur les
+     sites sombres. */
+  --surface-produit:#FFFFFF;
   --gut:clamp(20px,5vw,64px);
   --maxw:1240px;
 }
+
+/* ============================================================
+   1b. THEME SOMBRE
+   ============================================================
+   Les valeurs ne sont pas choisies a l'oeil, elles sont calculees :
+     --ink    17,2:1 sur le fond, 15,5:1 sur un panneau
+     --ink-2   8,5:1 / 7,6:1
+     --ink-3   4,5:1 / 4,1:1   (exige 3:1 pour du grand texte)
+   Et surtout : un filet decoratif ne fait PAS une bordure interactive. A 0,28
+   d'opacite il ne donnait que 2,32:1 pour 3:1 exige ; --hairline-strong est
+   donc a 0,42, soit 3,78:1. C'est le piege classique du mode sombre.
+
+   Le heros garde volontairement son fond clair dans les deux themes : le film
+   est un studio blanc avec des appareils noirs. Assombri il deviendrait du noir
+   sur noir, et les produits disparaitraient. Il se lit comme une vitrine
+   eclairee, ce qui est une figure courante sur les sites sombres. */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --canvas:#0D0E10;
+  --section:#141517;
+  --panel:#191A1D;
+  --panel-2:#1F2024;
+
+  --ink:#F2F2F0;
+  --ink-2:#A8ACB3;
+  --ink-3:#767B84;
+
+  --hairline:rgba(242,242,240,.14);
+  --hairline-strong:rgba(242,242,240,.42);
+  --glass:rgba(25,26,29,.72);
+  --surface-produit:#F0F0EE;
+
+  /* Une ombre portee ne se voit pas sur du sombre : c'est la lumiere du bord
+     superieur qui donne le relief. */
+  --shadow-1:0 1px 0 rgba(242,242,240,.06) inset, 0 8px 24px rgba(0,0,0,.5);
+  --shadow-2:0 1px 0 rgba(242,242,240,.09) inset, 0 18px 48px rgba(0,0,0,.62);
+}
+:root{color-scheme:light}
+
+/* Le bouton principal s'inverse : clair sur fond sombre. */
+:root[data-theme="dark"] .btn-1,
+:root[data-theme="dark"] .navcta,
+:root[data-theme="dark"] .card .add,
+:root[data-theme="dark"] .menu-cta{background:var(--ink);color:var(--canvas)!important}
+:root[data-theme="dark"] .btn-1:hover,
+:root[data-theme="dark"] .navcta:hover{background:#fff}
+:root[data-theme="dark"] .navin{background:rgba(25,26,29,.78)}
+:root[data-theme="dark"] .menu{background:rgba(13,14,16,.97)}
+:root[data-theme="dark"] .navpill{background:rgba(242,242,240,.09)}
+:root[data-theme="dark"] .badge{background:rgba(242,242,240,.08)}
+:root[data-theme="dark"] .btn-2{background:rgba(242,242,240,.06)}
+:root[data-theme="dark"] .btn-2:hover{background:rgba(242,242,240,.12);border-color:var(--ink)}
+:root[data-theme="dark"] .dust i{background:#F2F2F0;opacity:.16}
+/* Le logo est un PNG a fond transparent dont l'encre est quasi noire (29,29,31).
+   Sur fond sombre il devient invisible. Un invert le rend clair sans toucher au
+   fond, qui est transparent : pas besoin d'un second fichier a maintenir. */
+:root[data-theme="dark"] .brand img{filter:invert(1) brightness(1.06)}
+/* la scene du heros reste claire dans les deux themes : voir plus haut */
+:root[data-theme="dark"] .still .stillin{color:#0B0C0E}
+:root[data-theme="dark"] .scene{color:#0B0C0E}
+:root[data-theme="dark"] .scene .sub{color:#4A4E56}
+:root[data-theme="dark"] .scene .kick{color:#4A4E56}
+
+/* Le passage d'un theme a l'autre s'adoucit, mais jamais pendant le chargement
+   ni sur les elements animes au defilement. */
+:root.theme-anim body,:root.theme-anim .sec,:root.theme-anim .card,
+:root.theme-anim .navin,:root.theme-anim .cat{
+  transition:background-color var(--t-ui) var(--precise),
+             border-color var(--t-ui) var(--precise),
+             color var(--t-ui) var(--precise)}
 
 /* ============================================================
    2. SOCLE
@@ -147,6 +223,22 @@ body.ready .navin{transform:none;opacity:1}
    Sous cette largeur la barre de liens disparait : sans ce menu il n'y avait
    plus aucun moyen d'atteindre les pages categorie depuis un telephone. */
 @media (max-width:900px){.navlinks{display:none}}
+
+/* Une seule icone visible a la fois : le soleil en sombre (ce vers quoi on
+   va), la lune en clair. L'echange se fait en opacite et rotation, jamais en
+   display, pour rester animable. */
+.theme-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:999px;border:1px solid var(--hairline);
+  background:transparent;cursor:pointer;color:var(--ink-2);
+  transition:color var(--t-micro) var(--precise),border-color var(--t-micro) var(--precise)}
+.theme-btn:hover{color:var(--ink);border-color:var(--hairline-strong)}
+.theme-btn svg{position:absolute;width:17px;height:17px;
+  transition:opacity var(--t-ui) var(--precise),transform var(--t-ui) var(--glide)}
+.theme-btn .i-soleil{opacity:0;transform:rotate(-90deg) scale(.6)}
+.theme-btn .i-lune{opacity:1;transform:none}
+:root[data-theme="dark"] .theme-btn .i-soleil{opacity:1;transform:none}
+:root[data-theme="dark"] .theme-btn .i-lune{opacity:0;transform:rotate(90deg) scale(.6)}
+@media (pointer:coarse){.theme-btn{width:44px;height:44px}}
 
 .burger{display:none;flex:0 0 auto;width:44px;height:44px;border-radius:999px;
   align-items:center;justify-content:center;gap:5px;flex-direction:column;
@@ -642,7 +734,8 @@ body.pose .still .stillimg{transition-delay:0ms}
    rien ne repousse ce qui suit. Sans overflow:hidden, le zoom au survol
    deborde de 8px et passe par-dessus le badge. */
 .pic{height:172px;display:flex;align-items:center;justify-content:center;
-  margin-bottom:16px;overflow:hidden;border-radius:10px}
+  margin-bottom:16px;overflow:hidden;border-radius:10px;
+  background:var(--surface-produit)}
 .pic img{height:auto;width:auto;max-height:172px;max-width:100%;object-fit:contain;
   transition:transform .55s var(--spring)}
 .card:hover .pic img{transform:scale(1.045)}
@@ -913,7 +1006,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 @media (min-width:900px){.pgrid{grid-template-columns:1.05fr .95fr}}
 
 .pvis{position:relative;display:grid;place-items:center;padding:clamp(28px,5vw,56px);
-  background:#fff;border:1px solid var(--hairline);border-radius:22px;min-height:min(58vh,440px)}
+  background:var(--surface-produit);border:1px solid var(--hairline);border-radius:22px;min-height:min(58vh,440px)}
 .pvis img{max-height:min(50vh,400px);width:auto;object-fit:contain}
 .pvis .sil{height:min(50vh,400px)}
 .pvis .sil svg{max-height:min(50vh,400px)}

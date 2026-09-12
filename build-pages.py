@@ -121,6 +121,14 @@ HEAD = '''<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<script>
+/* Avant tout affichage, sinon la page apparait en clair puis bascule : un
+   flash blanc en pleine figure sur un ecran sombre. Choix memorise, sinon
+   preference du systeme. */
+(function(){{try{{var t=localStorage.getItem("theme");
+if(!t)t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";
+document.documentElement.setAttribute("data-theme",t);}}catch(e){{}}}})();
+</script>
 <link rel="stylesheet" href="assets/site.css">
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
@@ -155,6 +163,10 @@ HEADER = '''<header class="nav" role="banner">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
         <span class="ctatxt">WhatsApp</span>
       </a>
+      <button class="navic theme-btn" id="theme-btn" type="button" aria-label="Passer au theme sombre">
+        <svg class="i-soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/></svg>
+        <svg class="i-lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 13.4A8.2 8.2 0 1 1 10.6 4a6.6 6.6 0 0 0 9.4 9.4z"/></svg>
+      </button>
       <button class="burger" id="burger" type="button"
               aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
         <span class="burger-l" aria-hidden="true"></span>

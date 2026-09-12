@@ -583,6 +583,46 @@ if (rm.addEventListener) rm.addEventListener("change", surRM);
 else if (rm.addListener) rm.addListener(surRM);
 
 /* ---------- démarrage ---------- */
+/* ---------- le theme clair / sombre ----------
+   Le theme est deja pose avant le premier affichage par un script en ligne dans
+   le head : ici on ne gere que la bascule. */
+function theme(){
+  var btn = document.getElementById("theme-btn");
+  if (!btn) return;
+  var racine = document.documentElement;
+  var sys = matchMedia("(prefers-color-scheme:dark)");
+
+  function libelle(){
+    var sombre = racine.getAttribute("data-theme") === "dark";
+    btn.setAttribute("aria-label", sombre ? "Passer au theme clair" : "Passer au theme sombre");
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", sombre ? "#0D0E10" : "#FAFAF8");
+  }
+  libelle();
+
+  btn.addEventListener("click", function(){
+    // L'adoucissement n'est arme qu'au clic : pendant le chargement il ferait
+    // trainer la mise en couleur de toute la page.
+    racine.classList.add("theme-anim");
+    var vers = racine.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    racine.setAttribute("data-theme", vers);
+    try { localStorage.setItem("theme", vers) } catch(e){}
+    libelle();
+    setTimeout(function(){ racine.classList.remove("theme-anim") }, 500);
+  });
+
+  // Si le visiteur n'a jamais choisi, on suit son systeme, meme en cours de route.
+  function suitSysteme(e){
+    var choisi = null;
+    try { choisi = localStorage.getItem("theme") } catch(err){}
+    if (choisi) return;
+    racine.setAttribute("data-theme", e.matches ? "dark" : "light");
+    libelle();
+  }
+  if (sys.addEventListener) sys.addEventListener("change", suitSysteme);
+  else if (sys.addListener) sys.addListener(suitSysteme);
+}
+
 /* ---------- le menu hamburger ----------
    Sous 900px la barre de liens disparaît : sans ce menu il n'y a plus aucun
    moyen d'atteindre les pages catégorie depuis un téléphone. */
@@ -671,6 +711,7 @@ function init(){
   poussiere();
   pilule();
   entrees();
+  theme();
   menu();
   grille();
   faq();
