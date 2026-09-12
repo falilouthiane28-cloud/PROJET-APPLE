@@ -456,7 +456,6 @@ INDEX_TPL = """<main id="main" tabindex="-1">
             <p class="sub">Livraison à Dakar en 24 heures. Garantie deux ans.</p>
             <div class="hrow">
               <a class="btn btn-1" href="#categories">Voir la boutique</a>
-              <a class="btn btn-2 wa" href="#">Commander sur WhatsApp</a>
             </div>
           </div>
         </div>

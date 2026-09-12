@@ -9,7 +9,10 @@
 
   --ink:#0B0C0E;           /* le noir : texte, CTA, accent */
   --ink-2:#4A4E56;
-  --ink-3:#8A8F98;
+  /* #8A8F98 ne donnait que 2,87 a 3,25:1 selon la surface, pour 4,5:1 exige
+     sur du petit texte : les fils d'Ariane, les libelles et les mentions
+     etaient en dessous du seuil depuis le debut. #686C74 tient 4,66 a 5,27:1. */
+  --ink-3:#686C74;
 
   --hairline:rgba(11,12,14,.11);
   --hairline-strong:rgba(11,12,14,.26);
@@ -60,24 +63,29 @@
    eclairee, ce qui est une figure courante sur les sites sombres. */
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --canvas:#0D0E10;
-  --section:#141517;
-  --panel:#191A1D;
-  --panel-2:#1F2024;
+  /* Une vraie echelle d'elevation, 5 a 6 niveaux par palier : trois gris
+     presque identiques donnaient une page plate. Le fond reprend exactement le
+     noir de la marque, --ink en mode clair, plutot qu'un gris quelconque.
+     Contrastes calcules : --ink de 15,0 a 17,8:1 selon la surface, --ink-2 de
+     7,5 a 8,9:1, --ink-3 de 4,2 a 5,0:1 pour 3:1 exige. */
+  --canvas:#0B0C0E;
+  --section:#111316;
+  --panel:#16181C;
+  --panel-2:#1C1F24;
 
-  --ink:#F2F2F0;
-  --ink-2:#A8ACB3;
-  --ink-3:#767B84;
+  --ink:#F4F4F2;
+  --ink-2:#ABAFB6;
+  --ink-3:#7C818A;
 
-  --hairline:rgba(242,242,240,.14);
-  --hairline-strong:rgba(242,242,240,.42);
-  --glass:rgba(25,26,29,.72);
+  --hairline:rgba(244,244,242,.13);
+  --hairline-strong:rgba(244,244,242,.42);
+  --glass:rgba(22,24,28,.74);
   --surface-produit:#F0F0EE;
 
   /* Une ombre portee ne se voit pas sur du sombre : c'est la lumiere du bord
      superieur qui donne le relief. */
-  --shadow-1:0 1px 0 rgba(242,242,240,.06) inset, 0 8px 24px rgba(0,0,0,.5);
-  --shadow-2:0 1px 0 rgba(242,242,240,.09) inset, 0 18px 48px rgba(0,0,0,.62);
+  --shadow-1:0 1px 0 rgba(244,244,242,.07) inset, 0 8px 24px rgba(0,0,0,.5);
+  --shadow-2:0 1px 0 rgba(244,244,242,.11) inset, 0 18px 48px rgba(0,0,0,.62);
 }
 :root{color-scheme:light}
 
@@ -88,13 +96,19 @@
 :root[data-theme="dark"] .menu-cta{background:var(--ink);color:var(--canvas)!important}
 :root[data-theme="dark"] .btn-1:hover,
 :root[data-theme="dark"] .navcta:hover{background:#fff}
-:root[data-theme="dark"] .navin{background:rgba(25,26,29,.78)}
-:root[data-theme="dark"] .menu{background:rgba(13,14,16,.97)}
-:root[data-theme="dark"] .navpill{background:rgba(242,242,240,.09)}
-:root[data-theme="dark"] .badge{background:rgba(242,242,240,.08)}
-:root[data-theme="dark"] .btn-2{background:rgba(242,242,240,.06)}
-:root[data-theme="dark"] .btn-2:hover{background:rgba(242,242,240,.12);border-color:var(--ink)}
-:root[data-theme="dark"] .dust i{background:#F2F2F0;opacity:.16}
+:root[data-theme="dark"] .navin{background:rgba(22,24,28,.82)}
+:root[data-theme="dark"] .menu{background:rgba(11,12,14,.97)}
+:root[data-theme="dark"] .navpill{background:rgba(244,244,242,.09)}
+/* Tout ce qui est pose sur une surface produit garde une encre sombre. */
+:root[data-theme="dark"] .pvis,
+:root[data-theme="dark"] .pic{color:#0B0C0E}
+:root[data-theme="dark"] .sec-alt{background:var(--section)}
+:root[data-theme="dark"] .cat,
+:root[data-theme="dark"] .card{background:var(--panel)}
+:root[data-theme="dark"] .badge{background:rgba(244,244,242,.07)}
+:root[data-theme="dark"] .btn-2{background:rgba(244,244,242,.05)}
+:root[data-theme="dark"] .btn-2:hover{background:rgba(244,244,242,.11);border-color:var(--ink)}
+:root[data-theme="dark"] .dust i{background:#F4F4F2;opacity:.14}
 /* Le logo est un PNG a fond transparent dont l'encre est quasi noire (29,29,31).
    Sur fond sombre il devient invisible. Un invert le rend clair sans toucher au
    fond, qui est transparent : pas besoin d'un second fichier a maintenir. */
@@ -303,7 +317,7 @@ body.menu-ouvert{overflow:hidden}
 .btn-1{background:var(--ink);color:#fff}
 .btn-1:hover{background:#000;transform:translateY(-2px);box-shadow:var(--shadow-2)}
 .btn-2{border:1px solid var(--hairline-strong);color:var(--ink);background:rgba(255,255,255,.7)}
-.btn-2:hover{border-color:var(--ink);transform:translateY(-2px);background:#fff}
+.btn-2:hover{border-color:var(--ink);transform:translateY(-2px);background:var(--panel)}
 .btn svg{width:17px;height:17px;flex:0 0 auto}
 /* Au doigt, toute cible fait au moins 44 par 44. Les icones panier et favoris
    etaient en dessous : c'est le defaut d'accessibilite le plus frequent sur une
@@ -587,7 +601,7 @@ body.pose .still .stillimg{transition-delay:0ms}
    ============================================================ */
 .sec{position:relative;z-index:1;padding:clamp(88px,13vh,150px) 0;background:var(--canvas)}
 .sec-alt{background:var(--section)}
-.sec-paper{background:#fff}
+.sec-paper{background:var(--panel)}
 
 .rule{width:100%;height:1px;border:0;margin:0;background:var(--hairline);position:relative;overflow:hidden}
 .rule::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--ink),transparent);
@@ -666,7 +680,7 @@ body.pose .still .stillimg{transition-delay:0ms}
 
 .hold{margin-top:32px}
 .holdbtn{position:relative;width:100%;padding:19px 26px;border-radius:14px;overflow:hidden;
-  border:1px solid var(--hairline-strong);background:#fff;
+  border:1px solid var(--hairline-strong);background:var(--panel);
   font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-2);touch-action:none;-webkit-user-select:none;user-select:none;
   transition:border-color .4s var(--precise),color .4s var(--precise)}
@@ -756,7 +770,8 @@ body.pose .still .stillimg{transition-delay:0ms}
              transform var(--t-ui,320ms) var(--spring),
              background var(--t-micro,180ms) var(--precise)}
 .card:hover .add,.card:focus-within .add{opacity:1;transform:translateY(0)}
-.card .add:hover{background:#000}
+.card .add:hover{filter:brightness(.82)}
+:root[data-theme="dark"] .card .add:hover{filter:brightness(1.12)}
 @media (pointer:coarse){
   .card .add{opacity:1;transform:none;min-height:44px;
     display:flex;align-items:center;justify-content:center}
@@ -980,7 +995,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 .navic svg{width:19px;height:19px}
 .pastille{position:absolute;top:2px;right:1px;min-width:17px;height:17px;padding:0 4px;
   display:grid;place-items:center;border-radius:999px;
-  background:var(--ink);color:#fff;font-family:var(--mono);font-size:.6rem;font-weight:500;
+  background:var(--ink);color:var(--canvas);font-family:var(--mono);font-size:.6rem;font-weight:500;
   line-height:1;border:2px solid var(--canvas)}
 @media (max-width:520px){.navcta .ctatxt{display:none}.navcta{padding:10px 13px}}
 
@@ -1012,9 +1027,11 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 .pvis .sil svg{max-height:min(50vh,400px)}
 .sceau-mini{position:absolute;top:18px;right:18px;
   display:grid;place-items:center;width:66px;height:66px;border-radius:50%;
-  border:1.5px solid var(--ink);color:var(--ink);
+  /* Pose sur --surface-produit, qui reste claire dans les deux themes :
+     l'encre doit donc rester sombre, sinon on ecrit clair sur clair. */
+  border:1.5px solid #0B0C0E;color:#0B0C0E;
   font-family:var(--mono);font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
-  transform:rotate(-9deg);opacity:.5}
+  transform:rotate(-9deg);opacity:.45}
 
 .pinfo h1{font-size:clamp(1.9rem,4.4vw,3.1rem);margin-top:12px}
 .psub{margin-top:12px;color:var(--ink-2);font-size:1rem}
@@ -1029,7 +1046,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 .chip2{position:relative;display:inline-flex}
 .chip2 input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
 .chip2 span{display:inline-flex;align-items:center;min-height:40px;padding:9px 16px;
-  border-radius:999px;border:1px solid var(--hairline-strong);background:#fff;
+  border-radius:999px;border:1px solid var(--hairline-strong);background:var(--panel);
   font-size:.88rem;font-weight:500;
   transition:border-color .3s var(--precise),background .3s var(--precise),color .3s var(--precise)}
 .chip2 input:hover+span{border-color:var(--ink)}
@@ -1038,12 +1055,12 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 
 .achat{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:30px}
 .qte{display:inline-flex;align-items:center;border:1px solid var(--hairline-strong);
-  border-radius:999px;background:#fff;overflow:hidden}
+  border-radius:999px;background:var(--panel);overflow:hidden}
 .qbtn{width:44px;height:48px;display:grid;place-items:center;font-size:1.15rem;color:var(--ink-2);
   transition:background .3s var(--precise),color .3s var(--precise)}
 .qbtn:hover{background:rgba(11,12,14,.055);color:var(--ink)}
 .qval{min-width:38px;text-align:center;font-family:var(--mono);font-size:.94rem;font-weight:500}
-.btn-fav{border:1px solid var(--hairline-strong);background:#fff;color:var(--ink);
+.btn-fav{border:1px solid var(--hairline-strong);background:var(--panel);color:var(--ink);
   padding:15px 22px;border-radius:999px;display:inline-flex;align-items:center;gap:9px;
   font-weight:700;font-size:.94rem;
   transition:border-color .35s var(--precise),transform .35s var(--spring)}
@@ -1073,7 +1090,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   grid-template-areas:"vis txt qte prix"}}
 .panline:first-child{border-top:1px solid var(--hairline)}
 .panvis{grid-area:vis;display:grid;place-items:center;height:88px;
-  background:#fff;border:1px solid var(--hairline);border-radius:12px;padding:8px}
+  background:var(--panel);border:1px solid var(--hairline);border-radius:12px;padding:8px}
 .panvis img{max-height:70px;width:auto}
 .panvis .sil{height:70px}
 .panvis .sil svg{max-height:70px}
@@ -1090,7 +1107,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   text-align:right;white-space:nowrap}
 
 .recap{position:sticky;top:96px;padding:28px;border-radius:18px;
-  background:#fff;border:1px solid var(--hairline);box-shadow:var(--shadow-1)}
+  background:var(--panel);border:1px solid var(--hairline);box-shadow:var(--shadow-1)}
 .recap h2{font-size:1.2rem}
 .recap dl{display:grid;grid-template-columns:1fr auto;gap:11px 16px;margin:22px 0 0}
 .recap dt{color:var(--ink-2);font-size:.92rem}
@@ -1111,7 +1128,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 .card .pic{cursor:pointer}
 .card h3 a{transition:opacity .3s var(--precise)}
 .card h3 a:hover{opacity:.62}
-.add-out{background:#fff;color:var(--ink);border:1px solid var(--hairline-strong)}
+.add-out{background:var(--panel);color:var(--ink);border:1px solid var(--hairline-strong)}
 .add-out:hover{background:var(--canvas);border-color:var(--ink)}
 
 
@@ -1128,7 +1145,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 .etape p{margin-top:10px;color:var(--ink-2);font-size:.93rem}
 .paiements{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(34px,5vw,52px)}
 .paie{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:999px;
-  border:1px solid var(--hairline-strong);background:#fff;font-weight:500;font-size:.9rem}
+  border:1px solid var(--hairline-strong);background:var(--panel);font-weight:500;font-size:.9rem}
 .paie svg{width:17px;height:17px;color:var(--ink)}
 .photonote{position:absolute;left:0;right:0;bottom:14px;margin:0;padding:0 18px;
   text-align:center;color:var(--ink-3);text-transform:none;letter-spacing:.02em;
