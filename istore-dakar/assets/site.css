@@ -742,13 +742,37 @@ body.pose .still .stillimg{transition-delay:0ms}
 .fine{margin-top:clamp(44px,6vw,66px);padding-top:26px;border-top:1px solid var(--hairline);
   color:var(--ink-3);font-size:.79rem;line-height:1.65;max-width:76ch}
 
+/* ---- le heros anime sur telephone et tablette ----
+   En portrait, une colonne laterale n'a pas de place : le texte passe sous le
+   film, en pleine largeur. Le film est remonte pour lui laisser le bas. */
+@media (max-width:1024px){
+  .hero{height:420vh}
+  .stage{--film-h:min(42vh,50vw)}
+  .canvas-wrap #film-canvas,.plate{top:34%}
+  .scene,.scene.at-left,.scene.at-right{
+    left:0;right:0;width:auto;top:auto;bottom:0;height:56%;
+    padding:0 var(--gut) 6vh;text-align:left;
+    justify-content:flex-end}
+  .scene.at-right .sub{margin-left:0}
+  .scene.at-right .hrow,.scene.at-left .hrow{justify-content:flex-start}
+  .headline,#s2 .headline,#s3 .headline,#s4 .headline{
+    font-size:clamp(1.9rem,6.4vw,3rem)}
+  .sub{max-width:38ch}
+  .mesure{display:none}
+}
+@media (max-width:560px){
+  .hero{height:380vh}
+  .stage{--film-h:min(38vh,58vw)}
+  .headline,#s2 .headline,#s3 .headline,#s4 .headline{
+    font-size:clamp(1.6rem,7.4vw,2.3rem)}
+}
+
 /* ============================================================
    15. LES CINQ PORTES DU HÉROS STATIQUE
    ============================================================ */
-@media (max-width:720px),
-       (orientation:portrait) and (max-width:1024px),
-       (orientation:portrait) and (pointer:coarse),
-       (orientation:landscape) and (pointer:coarse) and (max-height:560px),
+/* Les deux portes doivent correspondre CARACTERE POUR CARACTERE a celles du
+   JavaScript, sinon un cote charge ce que l'autre cache. */
+@media (orientation:landscape) and (pointer:coarse) and (max-height:480px),
        (prefers-reduced-motion:reduce){
   .hero{height:auto}
   .stage{position:relative;height:auto;min-height:100svh;display:grid;place-items:center;

@@ -99,8 +99,13 @@ function film(){
      images à 1920 px occupaient deux gigaoctets de mémoire, ce qui suffisait à
      faire ramer toute la page d'accueil. Là c'est 358 Mo, et 1 Mo sur le réseau
      au lieu de 4. */
-  var NB_IMAGES = 120;
-  var CHEMIN    = "assets/frames/f_";
+  /* Deux jeux d'images. Le grand pour le bureau, un allege pour le telephone
+     et la tablette : 60 images a 720px font 70 Mo une fois decodees, contre
+     358 Mo pour le jeu de bureau, et 250 Ko sur le reseau contre 1 Mo. C'est la
+     memoire, pas le poids reseau, qui interdisait le film sur telephone. */
+  var PETIT     = matchMedia("(max-width:1024px)").matches;
+  var NB_IMAGES = PETIT ? 60 : 120;
+  var CHEMIN    = PETIT ? "assets/frames-m/f_" : "assets/frames/f_";
   var POSTER    = "assets/hero-poster.jpg";
   var PAGE      = "#FAFAF8";
   var PREMIERES = 12;        // assez pour peindre sans attendre le reste
@@ -481,11 +486,12 @@ function film(){
   }
 
   /* --- les cinq portes, décidées en direct et non une fois pour toutes --- */
+  /* Le film tourne desormais aussi sur telephone et tablette, avec le jeu
+     d'images allege. Il ne reste que deux portes vers le heros fige :
+     le mouvement reduit, qui est un choix du visiteur, et le paysage tres bas,
+     ou il n'y a la place de rien lire. */
   var PORTES = [
-    "(max-width:720px)",
-    "(orientation:portrait) and (max-width:1024px)",
-    "(orientation:portrait) and (pointer:coarse)",
-    "(orientation:landscape) and (pointer:coarse) and (max-height:560px)",
+    "(orientation:landscape) and (pointer:coarse) and (max-height:480px)",
     "(prefers-reduced-motion:reduce)"
   ];
   var MQLS = PORTES.map(function(q){ return matchMedia(q) });
