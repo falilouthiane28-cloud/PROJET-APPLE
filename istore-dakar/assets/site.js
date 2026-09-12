@@ -100,11 +100,11 @@ function film(){
      faire ramer toute la page d'accueil. Là c'est 358 Mo, et 1 Mo sur le réseau
      au lieu de 4. */
   /* Deux jeux d'images. Le grand pour le bureau, un allege pour le telephone
-     et la tablette : 60 images a 720px font 70 Mo une fois decodees, contre
-     358 Mo pour le jeu de bureau, et 250 Ko sur le reseau contre 1 Mo. C'est la
+     et la tablette : 120 images a 640px font 111 Mo une fois decodees, contre
+     358 Mo pour le jeu de bureau, et 426 Ko sur le reseau contre 1 Mo. C'est la
      memoire, pas le poids reseau, qui interdisait le film sur telephone. */
   var PETIT     = matchMedia("(max-width:1024px)").matches;
-  var NB_IMAGES = PETIT ? 60 : 120;
+  var NB_IMAGES = 120;
   var CHEMIN    = PETIT ? "assets/frames-m/f_" : "assets/frames/f_";
   var POSTER    = "assets/hero-poster.jpg";
   var PAGE      = "#FAFAF8";

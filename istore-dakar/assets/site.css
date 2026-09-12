@@ -326,9 +326,24 @@ body.menu-ouvert{overflow:hidden}
 .scene.at-left{left:var(--gut)}
 .scene.at-right{right:var(--gut);text-align:right}
 .scene.live{pointer-events:auto}
-#s1,#s2,#s6{--cw:min(42%,560px)}
-#s5{--cw:min(34%,450px)}
-#s3,#s4{--cw:min(30%,400px)}
+/* La largeur de colonne n'est plus devinée par palier : elle se DÉDUIT de
+   l'emprise mesurée de l'appareil dans le film. --dev-g et --dev-d sont ses
+   bords gauche et droit, en fraction de la largeur du film, relevés image par
+   image. La colonne prend tout ce qui reste entre ce bord et celui de l'écran,
+   moins une marge de respiration.
+   Elle se recalcule donc toute seule à chaque taille d'écran, au lieu de
+   déborder sur l'appareil dès qu'on sort des paliers prévus. */
+.scene{--marge:26px; --film-w:calc(var(--film-h) * 1.7778)}
+.scene.at-left{
+  --cw:min(560px, calc(50vw - (0.5 - var(--dev-g)) * var(--film-w) - var(--gut) - var(--marge)))}
+.scene.at-right{
+  --cw:min(560px, calc(50vw - (var(--dev-d) - 0.5) * var(--film-w) - var(--gut) - var(--marge)))}
+#s1{--dev-g:.427; --dev-d:.571}
+#s2{--dev-g:.410; --dev-d:.589}
+#s3{--dev-g:.231; --dev-d:.762}
+#s4{--dev-g:.264; --dev-d:.998}
+#s5{--dev-g:.297; --dev-d:.701}
+#s6{--dev-g:.422; --dev-d:.576}
 .scene-in{position:relative;z-index:2}
 /* La copie floue est empilee sur la nette et les deux se croisent en opacite.
    Le flou lui-meme ne bouge jamais : filter n'est pas composable, l'animer
@@ -743,28 +758,46 @@ body.pose .still .stillimg{transition-delay:0ms}
   color:var(--ink-3);font-size:.79rem;line-height:1.65;max-width:76ch}
 
 /* ---- le heros anime sur telephone et tablette ----
-   En portrait, une colonne laterale n'a pas de place : le texte passe sous le
-   film, en pleine largeur. Le film est remonte pour lui laisser le bas. */
-@media (max-width:1024px){
-  .hero{height:420vh}
-  .stage{--film-h:min(42vh,50vw)}
-  .canvas-wrap #film-canvas,.plate{top:34%}
+   Le texte reste A COTE du film des qu'il y a de la largeur pour ca : c'est la
+   composition du site, et elle tient jusqu'en paysage sur telephone. Il n'y a
+   qu'en portrait etroit, sous 600px, qu'une colonne laterale ne laisserait que
+   150px au titre : la, et seulement la, le texte passe sous le film. */
+@media (max-width:1024px) and (min-width:600px){
+  .hero{height:440vh}
+  .stage{--film-h:min(40vh,32vw)}
+  .headline,#s2 .headline,#s3 .headline,#s4 .headline{
+    font-size:clamp(1.35rem,3.2vw,2rem)}
+  .sub{font-size:clamp(.85rem,1.5vw,.98rem);max-width:30ch}
+  .mesure{display:none}
+}
+
+/* Ecran court : le film doit maigrir, sinon il ne reste rien pour le texte.
+   Un telephone tenu en paysage fait souvent moins de 420px de haut. */
+@media (max-height:620px) and (min-width:600px){
+  .stage{--film-h:min(62vh,34vw)}
+  .headline,#s2 .headline,#s3 .headline,#s4 .headline{
+    font-size:clamp(1.2rem,2.6vw,1.7rem)}
+  .sub{font-size:.86rem;max-width:28ch}
+  .kick{margin-bottom:8px}
+  .hrow{margin-top:14px}
+  .hrow .btn{padding:10px 16px;font-size:.82rem}
+}
+
+/* Portrait etroit : la seule configuration ou le texte ne peut pas tenir a
+   cote. Il passe sous le film, en pleine largeur. */
+@media (max-width:599px){
+  .hero{height:380vh}
+  .stage{--film-h:min(36vh,58vw)}
+  .canvas-wrap #film-canvas,.plate{top:32%}
   .scene,.scene.at-left,.scene.at-right{
-    left:0;right:0;width:auto;top:auto;bottom:0;height:56%;
-    padding:0 var(--gut) 6vh;text-align:left;
-    justify-content:flex-end}
+    left:0;right:0;width:auto;top:auto;bottom:0;height:58%;
+    padding:0 var(--gut) 6vh;text-align:left;justify-content:flex-end}
   .scene.at-right .sub{margin-left:0}
   .scene.at-right .hrow,.scene.at-left .hrow{justify-content:flex-start}
   .headline,#s2 .headline,#s3 .headline,#s4 .headline{
-    font-size:clamp(1.9rem,6.4vw,3rem)}
-  .sub{max-width:38ch}
-  .mesure{display:none}
-}
-@media (max-width:560px){
-  .hero{height:380vh}
-  .stage{--film-h:min(38vh,58vw)}
-  .headline,#s2 .headline,#s3 .headline,#s4 .headline{
     font-size:clamp(1.6rem,7.4vw,2.3rem)}
+  .sub{max-width:34ch}
+  .mesure{display:none}
 }
 
 /* ============================================================
